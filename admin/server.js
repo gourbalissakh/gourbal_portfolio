@@ -423,6 +423,7 @@ const server = http.createServer(async (req, res) => {
         stack:        (Array.isArray(p.stack) ? p.stack : []).map(s => safeStr(s, 30)).filter(Boolean).slice(0, 8),
         githubUrl:    safeUrl(p.githubUrl),
         hostedUrl:    safeUrl(p.hostedUrl),
+        videoUrl:     safeUrl(p.videoUrl),
         platform:     'other',
         customDomain: safeStr(p.customDomain, 100) || null,
         imageUrl:     safeStr(p.imageUrl, 200) || '',

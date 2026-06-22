@@ -329,6 +329,7 @@ textarea{resize:vertical;min-height:80px}
       <div class="fg"><label for="pf-gh">Lien GitHub</label><input id="pf-gh" placeholder="https://github.com/..."></div>
       <div class="fg"><label for="pf-live">Lien Live</label><input id="pf-live" placeholder="https://..."></div>
       <div class="fg"><label for="pf-domain">Domaine custom</label><input id="pf-domain" placeholder="app.gourbal.me"></div>
+      <div class="fg full"><label for="pf-video">Vidéo démo (YouTube / Vimeo)</label><input id="pf-video" placeholder="https://youtu.be/..."></div>
       <div class="fg">
         <label for="pf-badge">Couleur badge</label>
         <select id="pf-badge">
@@ -631,6 +632,7 @@ function openProjModal(p) {
   document.getElementById('pf-gh').value      = p ? (p.githubUrl || '') : '';
   document.getElementById('pf-live').value    = p ? (p.hostedUrl || '') : '';
   document.getElementById('pf-domain').value  = p ? (p.customDomain || '') : '';
+  document.getElementById('pf-video').value   = p ? (p.videoUrl || '') : '';
   document.getElementById('pf-badge').value   = p ? (p.badgeColor || 'primary') : 'primary';
   document.getElementById('pf-img').value     = p ? (p.imageUrl || '') : '';
   document.getElementById('pf-featured').checked = p ? !!p.featured : false;
@@ -650,6 +652,7 @@ document.getElementById('proj-save').addEventListener('click', async () => {
     githubUrl:    document.getElementById('pf-gh').value.trim() || null,
     hostedUrl:    document.getElementById('pf-live').value.trim() || null,
     customDomain: document.getElementById('pf-domain').value.trim() || null,
+    videoUrl:     document.getElementById('pf-video').value.trim() || null,
     badgeColor:   document.getElementById('pf-badge').value,
     imageUrl:     document.getElementById('pf-img').value.trim() || '',
     featured:     document.getElementById('pf-featured').checked,

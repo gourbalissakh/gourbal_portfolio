@@ -268,6 +268,17 @@
     #gal-lb-close:hover { color:var(--text); }
     #gal-lb-counter { position:fixed; top:1.3rem; left:50%; transform:translateX(-50%); font-size:.78rem; color:var(--muted); font-family:var(--mono); }
 
+    /* ── video modal ── */
+    #vid-modal { position:fixed; inset:0; background:rgba(4,7,15,.95); z-index:9999; display:none; align-items:center; justify-content:center; backdrop-filter:blur(12px); }
+    #vid-modal.open { display:flex; }
+    #vid-modal-inner { position:relative; width:min(880px,92vw); aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:0 0 80px rgba(0,0,0,.9); }
+    #vid-modal-inner iframe { width:100%; height:100%; border:none; display:block; }
+    #vid-modal-close { position:fixed; top:1.2rem; right:1.5rem; font-size:1.5rem; color:var(--muted); cursor:pointer; z-index:10000; background:none; border:none; transition:color .2s; }
+    #vid-modal-close:hover { color:var(--text); }
+    #vid-modal-title { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%); font-size:.84rem; color:var(--text); background:rgba(8,13,26,.85); padding:.4rem 1.1rem; border-radius:100px; border:1px solid var(--border); white-space:nowrap; max-width:80vw; overflow:hidden; text-overflow:ellipsis; }
+    .pbtn-demo { background:var(--violet); color:#fff; border:1px solid var(--violet); }
+    .pbtn-demo:hover { background:transparent; color:var(--violet); }
+
     /* ── footer ── */
     footer { padding:3rem 2rem; text-align:center; border-top:1px solid var(--border); }
     footer p { color:var(--muted); font-size:.82rem; line-height:1.9; }
@@ -507,6 +518,15 @@
     </div>
   </section>
   <div class="divider"></div>
+
+  <!-- Video modal -->
+  <div id="vid-modal">
+    <button id="vid-modal-close" aria-label="Fermer">&#x2715;</button>
+    <div id="vid-modal-inner">
+      <iframe id="vid-modal-frame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div id="vid-modal-title"></div>
+  </div>
 
   <!-- Lightbox avec navigation -->
   <div id="gal-lb">
@@ -817,6 +837,15 @@
         a.appendChild(document.createTextNode(' Live'));
         foot.appendChild(a);
       }
+      if (p.videoUrl) {
+        const btn = mk('button', 'pbtn pbtn-demo');
+        btn.type = 'button';
+        const ic = mk('i', 'bi bi-play-circle-fill');
+        btn.appendChild(ic);
+        btn.appendChild(document.createTextNode(' Démo'));
+        btn.addEventListener('click', () => openVideoModal(p.videoUrl, p.name));
+        foot.appendChild(btn);
+      }
       body.appendChild(foot);
       card.appendChild(body);
       return card;
@@ -958,6 +987,39 @@
       n.textContent = text;
       return n;
     }
+
+    // ── Video modal ──
+    const vidModal  = document.getElementById('vid-modal');
+    const vidFrame  = document.getElementById('vid-modal-frame');
+    const vidTitle  = document.getElementById('vid-modal-title');
+    const vidClose  = document.getElementById('vid-modal-close');
+
+    function toEmbedUrl(url) {
+      // YouTube: youtu.be/ID or youtube.com/watch?v=ID
+      const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+      if (yt) return 'https://www.youtube.com/embed/' + yt[1] + '?autoplay=1&rel=0';
+      // Vimeo: vimeo.com/ID
+      const vm = url.match(/vimeo\.com\/(\d+)/);
+      if (vm) return 'https://player.vimeo.com/video/' + vm[1] + '?autoplay=1';
+      return url;
+    }
+
+    function openVideoModal(url, title) {
+      vidFrame.src = toEmbedUrl(url);
+      vidTitle.textContent = title || '';
+      vidModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideoModal() {
+      vidModal.classList.remove('open');
+      vidFrame.src = '';
+      document.body.style.overflow = '';
+    }
+    vidClose.addEventListener('click', closeVideoModal);
+    vidModal.addEventListener('click', e => { if (e.target === vidModal) closeVideoModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && vidModal.classList.contains('open')) closeVideoModal();
+    });
 
     // ── Lightbox avec navigation ──
     const lb      = document.getElementById('gal-lb');
