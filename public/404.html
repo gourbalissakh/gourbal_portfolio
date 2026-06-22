@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page introuvable · M. I. GOURBAL</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Space Grotesk',sans-serif;background:#04070f;color:#e8eaf0;
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      flex-direction:column;gap:1.5rem;text-align:center;padding:2rem;}
+    .code{font-family:'Space Mono',monospace;font-size:clamp(5rem,18vw,10rem);
+      font-weight:700;line-height:1;
+      background:linear-gradient(135deg,#7efff5,#bf96ff);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    h1{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;color:#e8eaf0;}
+    p{font-size:.95rem;color:#6b7280;max-width:380px;line-height:1.6;}
+    a{display:inline-flex;align-items:center;gap:.5rem;margin-top:.5rem;
+      padding:.75rem 2rem;background:rgba(126,255,245,.08);border:1px solid rgba(126,255,245,.25);
+      border-radius:100px;color:#7efff5;text-decoration:none;font-size:.9rem;font-weight:600;
+      transition:background .2s,border-color .2s;}
+    a:hover{background:rgba(126,255,245,.15);border-color:rgba(126,255,245,.5);}
+    .dot{width:6px;height:6px;border-radius:50%;background:#7efff5;
+      animation:blink 1.2s ease-in-out infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  </style>
+</head>
+<body>
+  <div class="code">404</div>
+  <h1>Page introuvable</h1>
+  <p>La page que tu cherches n'existe pas ou a été déplacée.</p>
+  <a href="/">
+    <span class="dot"></span>
+    Retour au portfolio
+  </a>
+</body>
+</html>

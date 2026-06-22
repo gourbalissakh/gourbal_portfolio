@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="175" viewBox="0 0 660 175">
+  <defs>
+    <linearGradient id="bgpoubelleintelligente" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#031203"/>
+      <stop offset="100%" stop-color="#0a2a08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond dégradé -->
+  <rect width="660" height="175" fill="url(#bgpoubelleintelligente)"/>
+
+  <!-- grille de points (droite uniquement) -->
+  <g opacity="0.07"><circle cx="296" cy="14" r="1.5" fill="#22d35e"/><circle cx="296" cy="42" r="1.5" fill="#22d35e"/><circle cx="296" cy="70" r="1.5" fill="#22d35e"/><circle cx="296" cy="98" r="1.5" fill="#22d35e"/><circle cx="296" cy="126" r="1.5" fill="#22d35e"/><circle cx="296" cy="154" r="1.5" fill="#22d35e"/><circle cx="324" cy="14" r="1.5" fill="#22d35e"/><circle cx="324" cy="42" r="1.5" fill="#22d35e"/><circle cx="324" cy="70" r="1.5" fill="#22d35e"/><circle cx="324" cy="98" r="1.5" fill="#22d35e"/><circle cx="324" cy="126" r="1.5" fill="#22d35e"/><circle cx="324" cy="154" r="1.5" fill="#22d35e"/><circle cx="352" cy="14" r="1.5" fill="#22d35e"/><circle cx="352" cy="42" r="1.5" fill="#22d35e"/><circle cx="352" cy="70" r="1.5" fill="#22d35e"/><circle cx="352" cy="98" r="1.5" fill="#22d35e"/><circle cx="352" cy="126" r="1.5" fill="#22d35e"/><circle cx="352" cy="154" r="1.5" fill="#22d35e"/><circle cx="380" cy="14" r="1.5" fill="#22d35e"/><circle cx="380" cy="42" r="1.5" fill="#22d35e"/><circle cx="380" cy="70" r="1.5" fill="#22d35e"/><circle cx="380" cy="98" r="1.5" fill="#22d35e"/><circle cx="380" cy="126" r="1.5" fill="#22d35e"/><circle cx="380" cy="154" r="1.5" fill="#22d35e"/><circle cx="408" cy="14" r="1.5" fill="#22d35e"/><circle cx="408" cy="42" r="1.5" fill="#22d35e"/><circle cx="408" cy="70" r="1.5" fill="#22d35e"/><circle cx="408" cy="98" r="1.5" fill="#22d35e"/><circle cx="408" cy="126" r="1.5" fill="#22d35e"/><circle cx="408" cy="154" r="1.5" fill="#22d35e"/><circle cx="436" cy="14" r="1.5" fill="#22d35e"/><circle cx="436" cy="42" r="1.5" fill="#22d35e"/><circle cx="436" cy="70" r="1.5" fill="#22d35e"/><circle cx="436" cy="98" r="1.5" fill="#22d35e"/><circle cx="436" cy="126" r="1.5" fill="#22d35e"/><circle cx="436" cy="154" r="1.5" fill="#22d35e"/><circle cx="464" cy="14" r="1.5" fill="#22d35e"/><circle cx="464" cy="42" r="1.5" fill="#22d35e"/><circle cx="464" cy="70" r="1.5" fill="#22d35e"/><circle cx="464" cy="98" r="1.5" fill="#22d35e"/><circle cx="464" cy="126" r="1.5" fill="#22d35e"/><circle cx="464" cy="154" r="1.5" fill="#22d35e"/><circle cx="492" cy="14" r="1.5" fill="#22d35e"/><circle cx="492" cy="42" r="1.5" fill="#22d35e"/><circle cx="492" cy="70" r="1.5" fill="#22d35e"/><circle cx="492" cy="98" r="1.5" fill="#22d35e"/><circle cx="492" cy="126" r="1.5" fill="#22d35e"/><circle cx="492" cy="154" r="1.5" fill="#22d35e"/><circle cx="520" cy="14" r="1.5" fill="#22d35e"/><circle cx="520" cy="42" r="1.5" fill="#22d35e"/><circle cx="520" cy="70" r="1.5" fill="#22d35e"/><circle cx="520" cy="98" r="1.5" fill="#22d35e"/><circle cx="520" cy="126" r="1.5" fill="#22d35e"/><circle cx="520" cy="154" r="1.5" fill="#22d35e"/><circle cx="548" cy="14" r="1.5" fill="#22d35e"/><circle cx="548" cy="42" r="1.5" fill="#22d35e"/><circle cx="548" cy="70" r="1.5" fill="#22d35e"/><circle cx="548" cy="98" r="1.5" fill="#22d35e"/><circle cx="548" cy="126" r="1.5" fill="#22d35e"/><circle cx="548" cy="154" r="1.5" fill="#22d35e"/><circle cx="576" cy="14" r="1.5" fill="#22d35e"/><circle cx="576" cy="42" r="1.5" fill="#22d35e"/><circle cx="576" cy="70" r="1.5" fill="#22d35e"/><circle cx="576" cy="98" r="1.5" fill="#22d35e"/><circle cx="576" cy="126" r="1.5" fill="#22d35e"/><circle cx="576" cy="154" r="1.5" fill="#22d35e"/><circle cx="604" cy="14" r="1.5" fill="#22d35e"/><circle cx="604" cy="42" r="1.5" fill="#22d35e"/><circle cx="604" cy="70" r="1.5" fill="#22d35e"/><circle cx="604" cy="98" r="1.5" fill="#22d35e"/><circle cx="604" cy="126" r="1.5" fill="#22d35e"/><circle cx="604" cy="154" r="1.5" fill="#22d35e"/><circle cx="632" cy="14" r="1.5" fill="#22d35e"/><circle cx="632" cy="42" r="1.5" fill="#22d35e"/><circle cx="632" cy="70" r="1.5" fill="#22d35e"/><circle cx="632" cy="98" r="1.5" fill="#22d35e"/><circle cx="632" cy="126" r="1.5" fill="#22d35e"/><circle cx="632" cy="154" r="1.5" fill="#22d35e"/></g>
+
+  <!-- lueur derrière l'icône -->
+  <radialGradient id="gl" cx="530" cy="88" r="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#22d35e" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#22d35e" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="530" cy="88" r="110" fill="url(#gl)"/>
+
+  <!-- icône décorative -->
+  <g transform="translate(530,88)" opacity="0.18">
+    <rect x="-34" y="-34" width="68" height="68" rx="7"
+      fill="#22d35e" fill-opacity="0.06" stroke="#22d35e" stroke-width="2"/>
+    <rect x="-20" y="-20" width="40" height="40" rx="4"
+      fill="none" stroke="#22d35e" stroke-width="1.2"/>
+    
+    <line x1="-34" y1="-22" x2="-46" y2="-22" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34"  y1="-22" x2="46"  y2="-22" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-22" y1="-34" x2="-22" y2="-46" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-22" y1="34"  x2="-22" y2="46"  stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <line x1="-34" y1="-11" x2="-46" y2="-11" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34"  y1="-11" x2="46"  y2="-11" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-11" y1="-34" x2="-11" y2="-46" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-11" y1="34"  x2="-11" y2="46"  stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <line x1="-34" y1="0" x2="-46" y2="0" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34"  y1="0" x2="46"  y2="0" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="-34" x2="0" y2="-46" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="34"  x2="0" y2="46"  stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <line x1="-34" y1="11" x2="-46" y2="11" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34"  y1="11" x2="46"  y2="11" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="11" y1="-34" x2="11" y2="-46" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="11" y1="34"  x2="11" y2="46"  stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <line x1="-34" y1="22" x2="-46" y2="22" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34"  y1="22" x2="46"  y2="22" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="22" y1="-34" x2="22" y2="-46" stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="22" y1="34"  x2="22" y2="46"  stroke="#22d35e" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#22d35e" opacity="0.35"/>
+  </g>
+
+  <!-- séparateur vertical -->
+  <line x1="420" y1="20" x2="420" y2="155"
+    stroke="#22d35e" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- bande accent gauche -->
+  <rect x="0" y="0" width="4" height="175" fill="#22d35e" opacity="0.75"/>
+
+  <!-- ligne top accent -->
+  <line x1="4" y1="0.8" x2="420" y2="0.8"
+    stroke="#22d35e" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- catégorie -->
+  <text x="20" y="35"
+    font-family="'Space Mono',monospace,system-ui" font-size="10" font-weight="700"
+    fill="#22d35e" opacity="0.65" letter-spacing="2">IoT</text>
+
+  <!-- titre -->
+  <text x="20" y="78"
+    font-family="'Space Grotesk',system-ui,sans-serif" font-size="26" font-weight="700"
+    fill="white" opacity="0.95" letter-spacing="-0.5">Poubelle Intelligente</text>
+
+  <!-- ligne sous le titre -->
+  <line x1="20" y1="88" x2="335" y2="88"
+    stroke="#22d35e" stroke-width="1.5" opacity="0.4"/>
+
+  
+
+  <!-- pills tech -->
+  <rect x="36" y="148" width="63.6" height="18" rx="9"
+      fill="#22d35e" fill-opacity="0.1" stroke="#22d35e" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="67.8" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#22d35e" opacity="0.75" text-anchor="middle">Arduino</text><rect x="106.6" y="148" width="22.8" height="18" rx="9"
+      fill="#22d35e" fill-opacity="0.1" stroke="#22d35e" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="118" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#22d35e" opacity="0.75" text-anchor="middle">C</text><rect x="136.4" y="148" width="63.6" height="18" rx="9"
+      fill="#22d35e" fill-opacity="0.1" stroke="#22d35e" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="168.20000000000002" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#22d35e" opacity="0.75" text-anchor="middle">HC-SR04</text>
+</svg>

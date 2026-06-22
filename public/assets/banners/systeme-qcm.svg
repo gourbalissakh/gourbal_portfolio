@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="175" viewBox="0 0 660 175">
+  <defs>
+    <linearGradient id="bgsystemeqcm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#041408"/>
+      <stop offset="100%" stop-color="#0a2e12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond dégradé -->
+  <rect width="660" height="175" fill="url(#bgsystemeqcm)"/>
+
+  <!-- grille de points (droite uniquement) -->
+  <g opacity="0.07"><circle cx="296" cy="14" r="1.5" fill="#7efff5"/><circle cx="296" cy="42" r="1.5" fill="#7efff5"/><circle cx="296" cy="70" r="1.5" fill="#7efff5"/><circle cx="296" cy="98" r="1.5" fill="#7efff5"/><circle cx="296" cy="126" r="1.5" fill="#7efff5"/><circle cx="296" cy="154" r="1.5" fill="#7efff5"/><circle cx="324" cy="14" r="1.5" fill="#7efff5"/><circle cx="324" cy="42" r="1.5" fill="#7efff5"/><circle cx="324" cy="70" r="1.5" fill="#7efff5"/><circle cx="324" cy="98" r="1.5" fill="#7efff5"/><circle cx="324" cy="126" r="1.5" fill="#7efff5"/><circle cx="324" cy="154" r="1.5" fill="#7efff5"/><circle cx="352" cy="14" r="1.5" fill="#7efff5"/><circle cx="352" cy="42" r="1.5" fill="#7efff5"/><circle cx="352" cy="70" r="1.5" fill="#7efff5"/><circle cx="352" cy="98" r="1.5" fill="#7efff5"/><circle cx="352" cy="126" r="1.5" fill="#7efff5"/><circle cx="352" cy="154" r="1.5" fill="#7efff5"/><circle cx="380" cy="14" r="1.5" fill="#7efff5"/><circle cx="380" cy="42" r="1.5" fill="#7efff5"/><circle cx="380" cy="70" r="1.5" fill="#7efff5"/><circle cx="380" cy="98" r="1.5" fill="#7efff5"/><circle cx="380" cy="126" r="1.5" fill="#7efff5"/><circle cx="380" cy="154" r="1.5" fill="#7efff5"/><circle cx="408" cy="14" r="1.5" fill="#7efff5"/><circle cx="408" cy="42" r="1.5" fill="#7efff5"/><circle cx="408" cy="70" r="1.5" fill="#7efff5"/><circle cx="408" cy="98" r="1.5" fill="#7efff5"/><circle cx="408" cy="126" r="1.5" fill="#7efff5"/><circle cx="408" cy="154" r="1.5" fill="#7efff5"/><circle cx="436" cy="14" r="1.5" fill="#7efff5"/><circle cx="436" cy="42" r="1.5" fill="#7efff5"/><circle cx="436" cy="70" r="1.5" fill="#7efff5"/><circle cx="436" cy="98" r="1.5" fill="#7efff5"/><circle cx="436" cy="126" r="1.5" fill="#7efff5"/><circle cx="436" cy="154" r="1.5" fill="#7efff5"/><circle cx="464" cy="14" r="1.5" fill="#7efff5"/><circle cx="464" cy="42" r="1.5" fill="#7efff5"/><circle cx="464" cy="70" r="1.5" fill="#7efff5"/><circle cx="464" cy="98" r="1.5" fill="#7efff5"/><circle cx="464" cy="126" r="1.5" fill="#7efff5"/><circle cx="464" cy="154" r="1.5" fill="#7efff5"/><circle cx="492" cy="14" r="1.5" fill="#7efff5"/><circle cx="492" cy="42" r="1.5" fill="#7efff5"/><circle cx="492" cy="70" r="1.5" fill="#7efff5"/><circle cx="492" cy="98" r="1.5" fill="#7efff5"/><circle cx="492" cy="126" r="1.5" fill="#7efff5"/><circle cx="492" cy="154" r="1.5" fill="#7efff5"/><circle cx="520" cy="14" r="1.5" fill="#7efff5"/><circle cx="520" cy="42" r="1.5" fill="#7efff5"/><circle cx="520" cy="70" r="1.5" fill="#7efff5"/><circle cx="520" cy="98" r="1.5" fill="#7efff5"/><circle cx="520" cy="126" r="1.5" fill="#7efff5"/><circle cx="520" cy="154" r="1.5" fill="#7efff5"/><circle cx="548" cy="14" r="1.5" fill="#7efff5"/><circle cx="548" cy="42" r="1.5" fill="#7efff5"/><circle cx="548" cy="70" r="1.5" fill="#7efff5"/><circle cx="548" cy="98" r="1.5" fill="#7efff5"/><circle cx="548" cy="126" r="1.5" fill="#7efff5"/><circle cx="548" cy="154" r="1.5" fill="#7efff5"/><circle cx="576" cy="14" r="1.5" fill="#7efff5"/><circle cx="576" cy="42" r="1.5" fill="#7efff5"/><circle cx="576" cy="70" r="1.5" fill="#7efff5"/><circle cx="576" cy="98" r="1.5" fill="#7efff5"/><circle cx="576" cy="126" r="1.5" fill="#7efff5"/><circle cx="576" cy="154" r="1.5" fill="#7efff5"/><circle cx="604" cy="14" r="1.5" fill="#7efff5"/><circle cx="604" cy="42" r="1.5" fill="#7efff5"/><circle cx="604" cy="70" r="1.5" fill="#7efff5"/><circle cx="604" cy="98" r="1.5" fill="#7efff5"/><circle cx="604" cy="126" r="1.5" fill="#7efff5"/><circle cx="604" cy="154" r="1.5" fill="#7efff5"/><circle cx="632" cy="14" r="1.5" fill="#7efff5"/><circle cx="632" cy="42" r="1.5" fill="#7efff5"/><circle cx="632" cy="70" r="1.5" fill="#7efff5"/><circle cx="632" cy="98" r="1.5" fill="#7efff5"/><circle cx="632" cy="126" r="1.5" fill="#7efff5"/><circle cx="632" cy="154" r="1.5" fill="#7efff5"/></g>
+
+  <!-- lueur derrière l'icône -->
+  <radialGradient id="gl" cx="530" cy="88" r="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#7efff5" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#7efff5" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="530" cy="88" r="110" fill="url(#gl)"/>
+
+  <!-- icône décorative -->
+  <g transform="translate(530,88)" opacity="0.2">
+    <rect x="-52" y="-46" width="104" height="76" rx="9"
+      fill="#7efff5" fill-opacity="0.05" stroke="#7efff5" stroke-width="2"/>
+    <line x1="-52" y1="-28" x2="52" y2="-28" stroke="#7efff5" stroke-width="1.5"/>
+    <circle cx="-38" cy="-37" r="4" fill="#7efff5" opacity="0.5"/>
+    <circle cx="-25" cy="-37" r="4" fill="#7efff5" opacity="0.35"/>
+    <circle cx="-12" cy="-37" r="4" fill="#7efff5" opacity="0.25"/>
+    <rect x="-5" y="-39" width="44" height="8" rx="4"
+      fill="none" stroke="#7efff5" stroke-width="1" opacity="0.4"/>
+    <rect x="-36" y="-18" width="72" height="5" rx="2.5" fill="#7efff5" opacity="0.22"/>
+    <rect x="-36" y="-7"  width="55" height="5" rx="2.5" fill="#7efff5" opacity="0.16"/>
+    <rect x="-36" y="4"   width="64" height="5" rx="2.5" fill="#7efff5" opacity="0.19"/>
+    <rect x="-36" y="15"  width="40" height="5" rx="2.5" fill="#7efff5" opacity="0.13"/>
+  </g>
+
+  <!-- séparateur vertical -->
+  <line x1="420" y1="20" x2="420" y2="155"
+    stroke="#7efff5" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- bande accent gauche -->
+  <rect x="0" y="0" width="4" height="175" fill="#7efff5" opacity="0.75"/>
+
+  <!-- ligne top accent -->
+  <line x1="4" y1="0.8" x2="420" y2="0.8"
+    stroke="#7efff5" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- catégorie -->
+  <text x="20" y="35"
+    font-family="'Space Mono',monospace,system-ui" font-size="10" font-weight="700"
+    fill="#7efff5" opacity="0.65" letter-spacing="2">WEB</text>
+
+  <!-- titre -->
+  <text x="20" y="78"
+    font-family="'Space Grotesk',system-ui,sans-serif" font-size="26" font-weight="700"
+    fill="white" opacity="0.95" letter-spacing="-0.5">Système de QCM</text>
+
+  <!-- ligne sous le titre -->
+  <line x1="20" y1="88" x2="230" y2="88"
+    stroke="#7efff5" stroke-width="1.5" opacity="0.4"/>
+
+  
+
+  <!-- pills tech -->
+  <rect x="36" y="148" width="36.4" height="18" rx="9"
+      fill="#7efff5" fill-opacity="0.1" stroke="#7efff5" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="54.2" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#7efff5" opacity="0.75" text-anchor="middle">PHP</text><rect x="79.4" y="148" width="50" height="18" rx="9"
+      fill="#7efff5" fill-opacity="0.1" stroke="#7efff5" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="104.4" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#7efff5" opacity="0.75" text-anchor="middle">MySQL</text><rect x="136.4" y="148" width="84" height="18" rx="9"
+      fill="#7efff5" fill-opacity="0.1" stroke="#7efff5" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="178.4" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#7efff5" opacity="0.75" text-anchor="middle">JavaScript</text><rect x="227.4" y="148" width="77.19999999999999" height="18" rx="9"
+      fill="#7efff5" fill-opacity="0.1" stroke="#7efff5" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="266" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#7efff5" opacity="0.75" text-anchor="middle">Bootstrap</text>
+</svg>

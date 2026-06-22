@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="175" viewBox="0 0 660 175">
+  <defs>
+    <linearGradient id="bgqcmia" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#080518"/>
+      <stop offset="100%" stop-color="#180a38"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond dégradé -->
+  <rect width="660" height="175" fill="url(#bgqcmia)"/>
+
+  <!-- grille de points (droite uniquement) -->
+  <g opacity="0.07"><circle cx="296" cy="14" r="1.5" fill="#bf96ff"/><circle cx="296" cy="42" r="1.5" fill="#bf96ff"/><circle cx="296" cy="70" r="1.5" fill="#bf96ff"/><circle cx="296" cy="98" r="1.5" fill="#bf96ff"/><circle cx="296" cy="126" r="1.5" fill="#bf96ff"/><circle cx="296" cy="154" r="1.5" fill="#bf96ff"/><circle cx="324" cy="14" r="1.5" fill="#bf96ff"/><circle cx="324" cy="42" r="1.5" fill="#bf96ff"/><circle cx="324" cy="70" r="1.5" fill="#bf96ff"/><circle cx="324" cy="98" r="1.5" fill="#bf96ff"/><circle cx="324" cy="126" r="1.5" fill="#bf96ff"/><circle cx="324" cy="154" r="1.5" fill="#bf96ff"/><circle cx="352" cy="14" r="1.5" fill="#bf96ff"/><circle cx="352" cy="42" r="1.5" fill="#bf96ff"/><circle cx="352" cy="70" r="1.5" fill="#bf96ff"/><circle cx="352" cy="98" r="1.5" fill="#bf96ff"/><circle cx="352" cy="126" r="1.5" fill="#bf96ff"/><circle cx="352" cy="154" r="1.5" fill="#bf96ff"/><circle cx="380" cy="14" r="1.5" fill="#bf96ff"/><circle cx="380" cy="42" r="1.5" fill="#bf96ff"/><circle cx="380" cy="70" r="1.5" fill="#bf96ff"/><circle cx="380" cy="98" r="1.5" fill="#bf96ff"/><circle cx="380" cy="126" r="1.5" fill="#bf96ff"/><circle cx="380" cy="154" r="1.5" fill="#bf96ff"/><circle cx="408" cy="14" r="1.5" fill="#bf96ff"/><circle cx="408" cy="42" r="1.5" fill="#bf96ff"/><circle cx="408" cy="70" r="1.5" fill="#bf96ff"/><circle cx="408" cy="98" r="1.5" fill="#bf96ff"/><circle cx="408" cy="126" r="1.5" fill="#bf96ff"/><circle cx="408" cy="154" r="1.5" fill="#bf96ff"/><circle cx="436" cy="14" r="1.5" fill="#bf96ff"/><circle cx="436" cy="42" r="1.5" fill="#bf96ff"/><circle cx="436" cy="70" r="1.5" fill="#bf96ff"/><circle cx="436" cy="98" r="1.5" fill="#bf96ff"/><circle cx="436" cy="126" r="1.5" fill="#bf96ff"/><circle cx="436" cy="154" r="1.5" fill="#bf96ff"/><circle cx="464" cy="14" r="1.5" fill="#bf96ff"/><circle cx="464" cy="42" r="1.5" fill="#bf96ff"/><circle cx="464" cy="70" r="1.5" fill="#bf96ff"/><circle cx="464" cy="98" r="1.5" fill="#bf96ff"/><circle cx="464" cy="126" r="1.5" fill="#bf96ff"/><circle cx="464" cy="154" r="1.5" fill="#bf96ff"/><circle cx="492" cy="14" r="1.5" fill="#bf96ff"/><circle cx="492" cy="42" r="1.5" fill="#bf96ff"/><circle cx="492" cy="70" r="1.5" fill="#bf96ff"/><circle cx="492" cy="98" r="1.5" fill="#bf96ff"/><circle cx="492" cy="126" r="1.5" fill="#bf96ff"/><circle cx="492" cy="154" r="1.5" fill="#bf96ff"/><circle cx="520" cy="14" r="1.5" fill="#bf96ff"/><circle cx="520" cy="42" r="1.5" fill="#bf96ff"/><circle cx="520" cy="70" r="1.5" fill="#bf96ff"/><circle cx="520" cy="98" r="1.5" fill="#bf96ff"/><circle cx="520" cy="126" r="1.5" fill="#bf96ff"/><circle cx="520" cy="154" r="1.5" fill="#bf96ff"/><circle cx="548" cy="14" r="1.5" fill="#bf96ff"/><circle cx="548" cy="42" r="1.5" fill="#bf96ff"/><circle cx="548" cy="70" r="1.5" fill="#bf96ff"/><circle cx="548" cy="98" r="1.5" fill="#bf96ff"/><circle cx="548" cy="126" r="1.5" fill="#bf96ff"/><circle cx="548" cy="154" r="1.5" fill="#bf96ff"/><circle cx="576" cy="14" r="1.5" fill="#bf96ff"/><circle cx="576" cy="42" r="1.5" fill="#bf96ff"/><circle cx="576" cy="70" r="1.5" fill="#bf96ff"/><circle cx="576" cy="98" r="1.5" fill="#bf96ff"/><circle cx="576" cy="126" r="1.5" fill="#bf96ff"/><circle cx="576" cy="154" r="1.5" fill="#bf96ff"/><circle cx="604" cy="14" r="1.5" fill="#bf96ff"/><circle cx="604" cy="42" r="1.5" fill="#bf96ff"/><circle cx="604" cy="70" r="1.5" fill="#bf96ff"/><circle cx="604" cy="98" r="1.5" fill="#bf96ff"/><circle cx="604" cy="126" r="1.5" fill="#bf96ff"/><circle cx="604" cy="154" r="1.5" fill="#bf96ff"/><circle cx="632" cy="14" r="1.5" fill="#bf96ff"/><circle cx="632" cy="42" r="1.5" fill="#bf96ff"/><circle cx="632" cy="70" r="1.5" fill="#bf96ff"/><circle cx="632" cy="98" r="1.5" fill="#bf96ff"/><circle cx="632" cy="126" r="1.5" fill="#bf96ff"/><circle cx="632" cy="154" r="1.5" fill="#bf96ff"/></g>
+
+  <!-- lueur derrière l'icône -->
+  <radialGradient id="gl" cx="530" cy="88" r="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#bf96ff" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#bf96ff" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="530" cy="88" r="110" fill="url(#gl)"/>
+
+  <!-- icône décorative -->
+  <g transform="translate(530,88)" opacity="0.18">
+    <line x1="0" y1="-62" x2="0" y2="-50" stroke="#bf96ff" stroke-width="1.8"/>
+    <circle cx="0" cy="-66" r="5" fill="none" stroke="#bf96ff" stroke-width="1.5"/>
+    <rect x="-30" y="-50" width="60" height="46" rx="10"
+      fill="#bf96ff" fill-opacity="0.06" stroke="#bf96ff" stroke-width="2"/>
+    <circle cx="-13" cy="-30" r="9" fill="none" stroke="#bf96ff" stroke-width="1.5"/>
+    <circle cx="13"  cy="-30" r="9" fill="none" stroke="#bf96ff" stroke-width="1.5"/>
+    <circle cx="-13" cy="-30" r="4" fill="#bf96ff" opacity="0.55"/>
+    <circle cx="13"  cy="-30" r="4" fill="#bf96ff" opacity="0.55"/>
+    <rect x="-17" y="-12" width="34" height="6" rx="3" fill="#bf96ff" opacity="0.3"/>
+    <rect x="-26" y="0"   width="52" height="36" rx="7"
+      fill="#bf96ff" fill-opacity="0.05" stroke="#bf96ff" stroke-width="1.5"/>
+    <rect x="-12" y="8"   width="24" height="14" rx="4" fill="#bf96ff" opacity="0.18"/>
+    <line x1="-26" y1="18" x2="-38" y2="18" stroke="#bf96ff" stroke-width="1.5"/>
+    <line x1="26"  y1="18" x2="38"  y2="18" stroke="#bf96ff" stroke-width="1.5"/>
+  </g>
+
+  <!-- séparateur vertical -->
+  <line x1="420" y1="20" x2="420" y2="155"
+    stroke="#bf96ff" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- bande accent gauche -->
+  <rect x="0" y="0" width="4" height="175" fill="#bf96ff" opacity="0.75"/>
+
+  <!-- ligne top accent -->
+  <line x1="4" y1="0.8" x2="420" y2="0.8"
+    stroke="#bf96ff" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- catégorie -->
+  <text x="20" y="35"
+    font-family="'Space Mono',monospace,system-ui" font-size="10" font-weight="700"
+    fill="#bf96ff" opacity="0.65" letter-spacing="2">FULL STACK · IA</text>
+
+  <!-- titre -->
+  <text x="20" y="78"
+    font-family="'Space Grotesk',system-ui,sans-serif" font-size="26" font-weight="700"
+    fill="white" opacity="0.95" letter-spacing="-0.5">QCM avec IA</text>
+
+  <!-- ligne sous le titre -->
+  <line x1="20" y1="88" x2="185" y2="88"
+    stroke="#bf96ff" stroke-width="1.5" opacity="0.4"/>
+
+  
+    <rect x="36" y="122" width="96" height="20" rx="10"
+      fill="#bf96ff" fill-opacity="0.15" stroke="#bf96ff" stroke-width="0.8" stroke-opacity="0.5"/>
+    <text x="84" y="135.5"
+      font-family="'Space Mono',monospace" font-size="9" font-weight="700"
+      fill="#bf96ff" opacity="0.85" text-anchor="middle">★ FEATURED</text>
+
+  <!-- pills tech -->
+  <rect x="36" y="148" width="50" height="18" rx="9"
+      fill="#bf96ff" fill-opacity="0.1" stroke="#bf96ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="61" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#bf96ff" opacity="0.75" text-anchor="middle">React</text><rect x="93" y="148" width="63.6" height="18" rx="9"
+      fill="#bf96ff" fill-opacity="0.1" stroke="#bf96ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="124.8" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#bf96ff" opacity="0.75" text-anchor="middle">Laravel</text><rect x="163.6" y="148" width="70.4" height="18" rx="9"
+      fill="#bf96ff" fill-opacity="0.1" stroke="#bf96ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="198.8" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#bf96ff" opacity="0.75" text-anchor="middle">REST API</text>
+</svg>

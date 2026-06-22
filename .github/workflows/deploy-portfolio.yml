@@ -1,0 +1,29 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/data/projects.json"
+      - "public/**"
+      - "scripts/build.js"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build (copy data to public)
+        run: node scripts/build.js
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=portfolio

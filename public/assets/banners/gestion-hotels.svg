@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="175" viewBox="0 0 660 175">
+  <defs>
+    <linearGradient id="bggestionhotels" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#030d1a"/>
+      <stop offset="100%" stop-color="#0a2238"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond dégradé -->
+  <rect width="660" height="175" fill="url(#bggestionhotels)"/>
+
+  <!-- grille de points (droite uniquement) -->
+  <g opacity="0.07"><circle cx="296" cy="14" r="1.5" fill="#64c8ff"/><circle cx="296" cy="42" r="1.5" fill="#64c8ff"/><circle cx="296" cy="70" r="1.5" fill="#64c8ff"/><circle cx="296" cy="98" r="1.5" fill="#64c8ff"/><circle cx="296" cy="126" r="1.5" fill="#64c8ff"/><circle cx="296" cy="154" r="1.5" fill="#64c8ff"/><circle cx="324" cy="14" r="1.5" fill="#64c8ff"/><circle cx="324" cy="42" r="1.5" fill="#64c8ff"/><circle cx="324" cy="70" r="1.5" fill="#64c8ff"/><circle cx="324" cy="98" r="1.5" fill="#64c8ff"/><circle cx="324" cy="126" r="1.5" fill="#64c8ff"/><circle cx="324" cy="154" r="1.5" fill="#64c8ff"/><circle cx="352" cy="14" r="1.5" fill="#64c8ff"/><circle cx="352" cy="42" r="1.5" fill="#64c8ff"/><circle cx="352" cy="70" r="1.5" fill="#64c8ff"/><circle cx="352" cy="98" r="1.5" fill="#64c8ff"/><circle cx="352" cy="126" r="1.5" fill="#64c8ff"/><circle cx="352" cy="154" r="1.5" fill="#64c8ff"/><circle cx="380" cy="14" r="1.5" fill="#64c8ff"/><circle cx="380" cy="42" r="1.5" fill="#64c8ff"/><circle cx="380" cy="70" r="1.5" fill="#64c8ff"/><circle cx="380" cy="98" r="1.5" fill="#64c8ff"/><circle cx="380" cy="126" r="1.5" fill="#64c8ff"/><circle cx="380" cy="154" r="1.5" fill="#64c8ff"/><circle cx="408" cy="14" r="1.5" fill="#64c8ff"/><circle cx="408" cy="42" r="1.5" fill="#64c8ff"/><circle cx="408" cy="70" r="1.5" fill="#64c8ff"/><circle cx="408" cy="98" r="1.5" fill="#64c8ff"/><circle cx="408" cy="126" r="1.5" fill="#64c8ff"/><circle cx="408" cy="154" r="1.5" fill="#64c8ff"/><circle cx="436" cy="14" r="1.5" fill="#64c8ff"/><circle cx="436" cy="42" r="1.5" fill="#64c8ff"/><circle cx="436" cy="70" r="1.5" fill="#64c8ff"/><circle cx="436" cy="98" r="1.5" fill="#64c8ff"/><circle cx="436" cy="126" r="1.5" fill="#64c8ff"/><circle cx="436" cy="154" r="1.5" fill="#64c8ff"/><circle cx="464" cy="14" r="1.5" fill="#64c8ff"/><circle cx="464" cy="42" r="1.5" fill="#64c8ff"/><circle cx="464" cy="70" r="1.5" fill="#64c8ff"/><circle cx="464" cy="98" r="1.5" fill="#64c8ff"/><circle cx="464" cy="126" r="1.5" fill="#64c8ff"/><circle cx="464" cy="154" r="1.5" fill="#64c8ff"/><circle cx="492" cy="14" r="1.5" fill="#64c8ff"/><circle cx="492" cy="42" r="1.5" fill="#64c8ff"/><circle cx="492" cy="70" r="1.5" fill="#64c8ff"/><circle cx="492" cy="98" r="1.5" fill="#64c8ff"/><circle cx="492" cy="126" r="1.5" fill="#64c8ff"/><circle cx="492" cy="154" r="1.5" fill="#64c8ff"/><circle cx="520" cy="14" r="1.5" fill="#64c8ff"/><circle cx="520" cy="42" r="1.5" fill="#64c8ff"/><circle cx="520" cy="70" r="1.5" fill="#64c8ff"/><circle cx="520" cy="98" r="1.5" fill="#64c8ff"/><circle cx="520" cy="126" r="1.5" fill="#64c8ff"/><circle cx="520" cy="154" r="1.5" fill="#64c8ff"/><circle cx="548" cy="14" r="1.5" fill="#64c8ff"/><circle cx="548" cy="42" r="1.5" fill="#64c8ff"/><circle cx="548" cy="70" r="1.5" fill="#64c8ff"/><circle cx="548" cy="98" r="1.5" fill="#64c8ff"/><circle cx="548" cy="126" r="1.5" fill="#64c8ff"/><circle cx="548" cy="154" r="1.5" fill="#64c8ff"/><circle cx="576" cy="14" r="1.5" fill="#64c8ff"/><circle cx="576" cy="42" r="1.5" fill="#64c8ff"/><circle cx="576" cy="70" r="1.5" fill="#64c8ff"/><circle cx="576" cy="98" r="1.5" fill="#64c8ff"/><circle cx="576" cy="126" r="1.5" fill="#64c8ff"/><circle cx="576" cy="154" r="1.5" fill="#64c8ff"/><circle cx="604" cy="14" r="1.5" fill="#64c8ff"/><circle cx="604" cy="42" r="1.5" fill="#64c8ff"/><circle cx="604" cy="70" r="1.5" fill="#64c8ff"/><circle cx="604" cy="98" r="1.5" fill="#64c8ff"/><circle cx="604" cy="126" r="1.5" fill="#64c8ff"/><circle cx="604" cy="154" r="1.5" fill="#64c8ff"/><circle cx="632" cy="14" r="1.5" fill="#64c8ff"/><circle cx="632" cy="42" r="1.5" fill="#64c8ff"/><circle cx="632" cy="70" r="1.5" fill="#64c8ff"/><circle cx="632" cy="98" r="1.5" fill="#64c8ff"/><circle cx="632" cy="126" r="1.5" fill="#64c8ff"/><circle cx="632" cy="154" r="1.5" fill="#64c8ff"/></g>
+
+  <!-- lueur derrière l'icône -->
+  <radialGradient id="gl" cx="530" cy="88" r="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#64c8ff" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#64c8ff" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="530" cy="88" r="110" fill="url(#gl)"/>
+
+  <!-- icône décorative -->
+  <g transform="translate(534,88)" opacity="0.2">
+    <rect x="-30" y="-56" width="60" height="98" rx="13"
+      fill="#64c8ff" fill-opacity="0.05" stroke="#64c8ff" stroke-width="2"/>
+    <rect x="-20" y="-44" width="40" height="62" rx="4" fill="#64c8ff" opacity="0.07"/>
+    <circle cx="0" cy="48" r="7" fill="none" stroke="#64c8ff" stroke-width="1.5"/>
+    <rect x="-9" y="-52" width="18" height="3" rx="1.5" fill="#64c8ff" opacity="0.45"/>
+    <rect x="-18" y="-28" width="36" height="5" rx="2" fill="#64c8ff" opacity="0.25"/>
+    <rect x="-18" y="-17" width="26" height="5" rx="2" fill="#64c8ff" opacity="0.18"/>
+    <rect x="-18" y="-6"  width="32" height="5" rx="2" fill="#64c8ff" opacity="0.2"/>
+    <rect x="-18" y="5"   width="20" height="5" rx="2" fill="#64c8ff" opacity="0.14"/>
+  </g>
+
+  <!-- séparateur vertical -->
+  <line x1="420" y1="20" x2="420" y2="155"
+    stroke="#64c8ff" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- bande accent gauche -->
+  <rect x="0" y="0" width="4" height="175" fill="#64c8ff" opacity="0.75"/>
+
+  <!-- ligne top accent -->
+  <line x1="4" y1="0.8" x2="420" y2="0.8"
+    stroke="#64c8ff" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- catégorie -->
+  <text x="20" y="35"
+    font-family="'Space Mono',monospace,system-ui" font-size="10" font-weight="700"
+    fill="#64c8ff" opacity="0.65" letter-spacing="2">MOBILE</text>
+
+  <!-- titre -->
+  <text x="20" y="78"
+    font-family="'Space Grotesk',system-ui,sans-serif" font-size="26" font-weight="700"
+    fill="white" opacity="0.95" letter-spacing="-0.5">Gestion Hôtels</text>
+
+  <!-- ligne sous le titre -->
+  <line x1="20" y1="88" x2="230" y2="88"
+    stroke="#64c8ff" stroke-width="1.5" opacity="0.4"/>
+
+  
+
+  <!-- pills tech -->
+  <rect x="36" y="148" width="63.6" height="18" rx="9"
+      fill="#64c8ff" fill-opacity="0.1" stroke="#64c8ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="67.8" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#64c8ff" opacity="0.75" text-anchor="middle">Flutter</text><rect x="106.6" y="148" width="43.2" height="18" rx="9"
+      fill="#64c8ff" fill-opacity="0.1" stroke="#64c8ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="128.2" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#64c8ff" opacity="0.75" text-anchor="middle">Dart</text>
+</svg>

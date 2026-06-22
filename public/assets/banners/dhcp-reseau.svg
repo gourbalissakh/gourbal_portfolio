@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="175" viewBox="0 0 660 175">
+  <defs>
+    <linearGradient id="bgdhcpreseau" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#030d1c"/>
+      <stop offset="100%" stop-color="#0d2540"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond dégradé -->
+  <rect width="660" height="175" fill="url(#bgdhcpreseau)"/>
+
+  <!-- grille de points (droite uniquement) -->
+  <g opacity="0.07"><circle cx="296" cy="14" r="1.5" fill="#64c8ff"/><circle cx="296" cy="42" r="1.5" fill="#64c8ff"/><circle cx="296" cy="70" r="1.5" fill="#64c8ff"/><circle cx="296" cy="98" r="1.5" fill="#64c8ff"/><circle cx="296" cy="126" r="1.5" fill="#64c8ff"/><circle cx="296" cy="154" r="1.5" fill="#64c8ff"/><circle cx="324" cy="14" r="1.5" fill="#64c8ff"/><circle cx="324" cy="42" r="1.5" fill="#64c8ff"/><circle cx="324" cy="70" r="1.5" fill="#64c8ff"/><circle cx="324" cy="98" r="1.5" fill="#64c8ff"/><circle cx="324" cy="126" r="1.5" fill="#64c8ff"/><circle cx="324" cy="154" r="1.5" fill="#64c8ff"/><circle cx="352" cy="14" r="1.5" fill="#64c8ff"/><circle cx="352" cy="42" r="1.5" fill="#64c8ff"/><circle cx="352" cy="70" r="1.5" fill="#64c8ff"/><circle cx="352" cy="98" r="1.5" fill="#64c8ff"/><circle cx="352" cy="126" r="1.5" fill="#64c8ff"/><circle cx="352" cy="154" r="1.5" fill="#64c8ff"/><circle cx="380" cy="14" r="1.5" fill="#64c8ff"/><circle cx="380" cy="42" r="1.5" fill="#64c8ff"/><circle cx="380" cy="70" r="1.5" fill="#64c8ff"/><circle cx="380" cy="98" r="1.5" fill="#64c8ff"/><circle cx="380" cy="126" r="1.5" fill="#64c8ff"/><circle cx="380" cy="154" r="1.5" fill="#64c8ff"/><circle cx="408" cy="14" r="1.5" fill="#64c8ff"/><circle cx="408" cy="42" r="1.5" fill="#64c8ff"/><circle cx="408" cy="70" r="1.5" fill="#64c8ff"/><circle cx="408" cy="98" r="1.5" fill="#64c8ff"/><circle cx="408" cy="126" r="1.5" fill="#64c8ff"/><circle cx="408" cy="154" r="1.5" fill="#64c8ff"/><circle cx="436" cy="14" r="1.5" fill="#64c8ff"/><circle cx="436" cy="42" r="1.5" fill="#64c8ff"/><circle cx="436" cy="70" r="1.5" fill="#64c8ff"/><circle cx="436" cy="98" r="1.5" fill="#64c8ff"/><circle cx="436" cy="126" r="1.5" fill="#64c8ff"/><circle cx="436" cy="154" r="1.5" fill="#64c8ff"/><circle cx="464" cy="14" r="1.5" fill="#64c8ff"/><circle cx="464" cy="42" r="1.5" fill="#64c8ff"/><circle cx="464" cy="70" r="1.5" fill="#64c8ff"/><circle cx="464" cy="98" r="1.5" fill="#64c8ff"/><circle cx="464" cy="126" r="1.5" fill="#64c8ff"/><circle cx="464" cy="154" r="1.5" fill="#64c8ff"/><circle cx="492" cy="14" r="1.5" fill="#64c8ff"/><circle cx="492" cy="42" r="1.5" fill="#64c8ff"/><circle cx="492" cy="70" r="1.5" fill="#64c8ff"/><circle cx="492" cy="98" r="1.5" fill="#64c8ff"/><circle cx="492" cy="126" r="1.5" fill="#64c8ff"/><circle cx="492" cy="154" r="1.5" fill="#64c8ff"/><circle cx="520" cy="14" r="1.5" fill="#64c8ff"/><circle cx="520" cy="42" r="1.5" fill="#64c8ff"/><circle cx="520" cy="70" r="1.5" fill="#64c8ff"/><circle cx="520" cy="98" r="1.5" fill="#64c8ff"/><circle cx="520" cy="126" r="1.5" fill="#64c8ff"/><circle cx="520" cy="154" r="1.5" fill="#64c8ff"/><circle cx="548" cy="14" r="1.5" fill="#64c8ff"/><circle cx="548" cy="42" r="1.5" fill="#64c8ff"/><circle cx="548" cy="70" r="1.5" fill="#64c8ff"/><circle cx="548" cy="98" r="1.5" fill="#64c8ff"/><circle cx="548" cy="126" r="1.5" fill="#64c8ff"/><circle cx="548" cy="154" r="1.5" fill="#64c8ff"/><circle cx="576" cy="14" r="1.5" fill="#64c8ff"/><circle cx="576" cy="42" r="1.5" fill="#64c8ff"/><circle cx="576" cy="70" r="1.5" fill="#64c8ff"/><circle cx="576" cy="98" r="1.5" fill="#64c8ff"/><circle cx="576" cy="126" r="1.5" fill="#64c8ff"/><circle cx="576" cy="154" r="1.5" fill="#64c8ff"/><circle cx="604" cy="14" r="1.5" fill="#64c8ff"/><circle cx="604" cy="42" r="1.5" fill="#64c8ff"/><circle cx="604" cy="70" r="1.5" fill="#64c8ff"/><circle cx="604" cy="98" r="1.5" fill="#64c8ff"/><circle cx="604" cy="126" r="1.5" fill="#64c8ff"/><circle cx="604" cy="154" r="1.5" fill="#64c8ff"/><circle cx="632" cy="14" r="1.5" fill="#64c8ff"/><circle cx="632" cy="42" r="1.5" fill="#64c8ff"/><circle cx="632" cy="70" r="1.5" fill="#64c8ff"/><circle cx="632" cy="98" r="1.5" fill="#64c8ff"/><circle cx="632" cy="126" r="1.5" fill="#64c8ff"/><circle cx="632" cy="154" r="1.5" fill="#64c8ff"/></g>
+
+  <!-- lueur derrière l'icône -->
+  <radialGradient id="gl" cx="530" cy="88" r="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#64c8ff" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#64c8ff" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="530" cy="88" r="110" fill="url(#gl)"/>
+
+  <!-- icône décorative -->
+  <g transform="translate(530,88)" opacity="0.2">
+    <path d="M-60,-35 Q0,-78 60,-35" fill="none" stroke="#64c8ff" stroke-width="2"   opacity="0.45"/>
+    <path d="M-44,-16 Q0,-54 44,-16" fill="none" stroke="#64c8ff" stroke-width="2.2" opacity="0.65"/>
+    <path d="M-28,4   Q0,-30 28,4"   fill="none" stroke="#64c8ff" stroke-width="2.5" opacity="0.85"/>
+    <path d="M-12,22  Q0,-8  12,22"  fill="none" stroke="#64c8ff" stroke-width="2.8"/>
+    <circle cx="0" cy="38" r="8" fill="#64c8ff" opacity="0.7"/>
+    <line x1="0" y1="46" x2="0" y2="56" stroke="#64c8ff" stroke-width="2" opacity="0.35"/>
+    <line x1="-14" y1="56" x2="14" y2="56" stroke="#64c8ff" stroke-width="2" opacity="0.35"/>
+  </g>
+
+  <!-- séparateur vertical -->
+  <line x1="420" y1="20" x2="420" y2="155"
+    stroke="#64c8ff" stroke-width="0.6" stroke-opacity="0.15"/>
+
+  <!-- bande accent gauche -->
+  <rect x="0" y="0" width="4" height="175" fill="#64c8ff" opacity="0.75"/>
+
+  <!-- ligne top accent -->
+  <line x1="4" y1="0.8" x2="420" y2="0.8"
+    stroke="#64c8ff" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- catégorie -->
+  <text x="20" y="35"
+    font-family="'Space Mono',monospace,system-ui" font-size="10" font-weight="700"
+    fill="#64c8ff" opacity="0.65" letter-spacing="2">RÉSEAU</text>
+
+  <!-- titre -->
+  <text x="20" y="78"
+    font-family="'Space Grotesk',system-ui,sans-serif" font-size="26" font-weight="700"
+    fill="white" opacity="0.95" letter-spacing="-0.5">Projet DHCP</text>
+
+  <!-- ligne sous le titre -->
+  <line x1="20" y1="88" x2="185" y2="88"
+    stroke="#64c8ff" stroke-width="1.5" opacity="0.4"/>
+
+  
+
+  <!-- pills tech -->
+  <rect x="36" y="148" width="50" height="18" rx="9"
+      fill="#64c8ff" fill-opacity="0.1" stroke="#64c8ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="61" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#64c8ff" opacity="0.75" text-anchor="middle">Linux</text><rect x="93" y="148" width="43.2" height="18" rx="9"
+      fill="#64c8ff" fill-opacity="0.1" stroke="#64c8ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="114.6" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#64c8ff" opacity="0.75" text-anchor="middle">DHCP</text><rect x="143.2" y="148" width="77.19999999999999" height="18" rx="9"
+      fill="#64c8ff" fill-opacity="0.1" stroke="#64c8ff" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="181.79999999999998" y="160.5"
+      font-family="'Space Mono',monospace,system-ui" font-size="9.5" font-weight="700"
+      fill="#64c8ff" opacity="0.75" text-anchor="middle">Wireshark</text>
+</svg>
