@@ -47,3 +47,13 @@ jobs:
           git add public/assets/demos/ src/data/projects.json
           git diff --staged --quiet || git commit -m "demo: record ${{ github.event.inputs.project_id }}"
           git push
+
+      - name: Build portfolio
+        run: node scripts/build.js
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=portfolio-gourbal --no-bundle
