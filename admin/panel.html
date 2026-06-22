@@ -901,7 +901,75 @@ document.getElementById('pwd-save-btn').addEventListener('click', async () => {
   });
 });
 
+// ── Mode online/local ─────────────────────────────────────────────────────
+async function detectMode() {
+  try {
+    const m = await api('GET', '/api/mode');
+    if (m.online) {
+      // Admin est en ligne sur Render
+      const adminCard = document.querySelector('.status-card:first-child');
+      const dot  = adminCard.querySelector('.s-dot');
+      const lbl  = adminCard.querySelector('.s-lbl');
+      const url  = adminCard.querySelector('.s-url');
+      const desc = document.getElementById('dash-local');
+      dot.className  = 's-dot online';
+      lbl.className  = 's-lbl online';
+      lbl.textContent = 'Admin — En ligne';
+      url.textContent = '';
+      const a = document.createElement('a');
+      a.href = 'https://admin-gourbal.onrender.com/admin';
+      a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'admin-gourbal.onrender.com';
+      url.appendChild(a);
+      desc.textContent = 'Ce panel est accessible depuis n\'importe où sur internet. Les modifications sont enregistrées directement sur GitHub et déployées automatiquement.';
+
+      // Deploy card : automatique en ligne
+      document.getElementById('deploy-card-title').textContent = 'Déploiement automatique actif';
+      const dc = document.getElementById('deploy-card-desc');
+      dc.textContent = '';
+      const s1 = document.createElement('span'); s1.textContent = 'Chaque modification que tu sauvegardes est envoyée sur ';
+      const b1 = document.createElement('strong'); b1.textContent = 'GitHub';
+      const s2 = document.createElement('span'); s2.textContent = ', puis ';
+      const b2 = document.createElement('strong'); b2.textContent = 'Cloudflare Pages';
+      const s3 = document.createElement('span'); s3.textContent = ' met à jour ';
+      const b3 = document.createElement('strong'); b3.textContent = 'gourbal.me';
+      const s4 = document.createElement('span'); s4.textContent = ' automatiquement en ~30s. Aucun bouton à cliquer.';
+      dc.appendChild(s1); dc.appendChild(b1); dc.appendChild(s2); dc.appendChild(b2);
+      dc.appendChild(s3); dc.appendChild(b3); dc.appendChild(s4);
+
+      // Bouton deploy inutile en ligne
+      const deployBtn = document.getElementById('deploy-btn-dashboard');
+      deployBtn.disabled = true;
+      deployBtn.style.opacity = '0.4';
+      deployBtn.style.cursor = 'not-allowed';
+      document.getElementById('deploy-btn-lbl').textContent = 'Auto';
+
+      // Lien preview vers gourbal.me
+      const previewBtn = document.querySelector('.topbar .icon-btn');
+      if (previewBtn) previewBtn.href = 'https://gourbal.me';
+
+      // Settings : expliquer que le mdp est dans Render
+      const si = document.getElementById('sys-info');
+      while (si.firstChild) si.removeChild(si.firstChild);
+      [
+        ['Mode     : ', 'En ligne (GitHub API)'],
+        ['Repo     : ', m.owner + '/' + m.repo],
+        ['Branche  : ', m.branch],
+        ['Deploy   : ', 'GitHub Actions → Cloudflare Pages'],
+        ['Mot de passe : ', 'Variable ADMIN_PWD_HASH dans Render.com'],
+      ].forEach(([lbl2, val]) => {
+        const sp1 = document.createElement('span'); sp1.textContent = lbl2;
+        const co  = document.createElement('code'); co.textContent = val;
+        si.appendChild(sp1); si.appendChild(co); si.appendChild(document.createElement('br'));
+      });
+    }
+  } catch (e) {
+    // mode local, rien à changer
+  }
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────
+detectMode();
 loadAll();
 </script>
 </body>
