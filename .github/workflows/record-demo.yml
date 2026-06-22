@@ -13,11 +13,16 @@ on:
         description: 'Nom du projet'
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   record:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
