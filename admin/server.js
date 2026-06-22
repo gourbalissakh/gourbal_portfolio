@@ -338,12 +338,8 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // ── API : Ajouter des photos (local seulement en ligne = non supporté) ──
+  // ── API : Ajouter des photos ──────────────────────────────────────────────
   if (url.match(/^\/api\/events\/[^/]+\/photos$/) && req.method === 'POST') {
-    if (ONLINE) {
-      jsonRes(res, 400, { error: "Upload de photos non disponible en mode en ligne. Ajoutez les images dans public/assets/gallery/ via GitHub directement." });
-      return;
-    }
     const evId = safeStr(url.split('/')[3], 80);
     const ct   = req.headers['content-type'] || '';
     const bm   = ct.match(/boundary=(.+)$/);
@@ -352,28 +348,41 @@ const server = http.createServer(async (req, res) => {
     const parts = parseMultipart(buf, bm[1]);
     const files = parts.filter(p => p.filename);
     if (!files.length) { jsonRes(res, 400, { error: 'aucun fichier' }); return; }
-    const safe  = ['.jpg','.jpeg','.png','.webp','.gif','.svg'];
-    const r     = await readJSON('gallery.json');
-    const data  = r.data;
-    const ev    = data.events.find(e => e.id === evId);
-    if (!ev) { jsonRes(res, 404, { error: 'événement introuvable' }); return; }
-    if (!ev.photos) ev.photos = [];
-    const galDir = path.join(ROOT, 'public', 'assets', 'gallery');
-    if (!fs.existsSync(galDir)) fs.mkdirSync(galDir, { recursive: true });
-    const added = [];
-    for (const file of files) {
-      const ext = path.extname(file.filename).toLowerCase();
-      if (!safe.includes(ext)) continue;
-      const name = 'img-' + Date.now() + '-' + Math.floor(Math.random()*9999) + ext;
-      fs.writeFileSync(path.join(galDir, name), file.data);
-      const captionPart = parts.find(p => p.name === 'caption_' + file.name) || parts.find(p => p.name === 'caption');
-      const caption = safeStr((captionPart || {}).data?.toString() || '', 120);
-      const photo = { id: name.replace(/\./g, '-'), src: 'assets/gallery/' + name, caption };
-      ev.photos.push(photo);
-      added.push(photo);
-    }
-    await writeJSON('gallery.json', data, r.sha);
-    jsonRes(res, 200, { ok: true, added }); return;
+    const safe = ['.jpg','.jpeg','.png','.webp','.gif','.svg'];
+    try {
+      const r    = await readJSON('gallery.json');
+      const data = r.data;
+      const ev   = data.events.find(e => e.id === evId);
+      if (!ev) { jsonRes(res, 404, { error: 'événement introuvable' }); return; }
+      if (!ev.photos) ev.photos = [];
+      const added = [];
+      for (const file of files) {
+        const ext = path.extname(file.filename).toLowerCase();
+        if (!safe.includes(ext)) continue;
+        const name = 'img-' + Date.now() + '-' + Math.floor(Math.random()*9999) + ext;
+        const captionPart = parts.find(p => p.name === 'caption_' + file.name) || parts.find(p => p.name === 'caption');
+        const caption = safeStr((captionPart || {}).data?.toString() || '', 120);
+        if (ONLINE) {
+          // Upload image sur GitHub directement
+          const ghImgPath = '/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/public/assets/gallery/' + name;
+          await ghRequest('PUT', ghImgPath, {
+            message: 'admin: upload photo ' + name,
+            content: file.data.toString('base64'),
+            branch: GH_BRANCH,
+          });
+        } else {
+          const galDir = path.join(ROOT, 'public', 'assets', 'gallery');
+          if (!fs.existsSync(galDir)) fs.mkdirSync(galDir, { recursive: true });
+          fs.writeFileSync(path.join(galDir, name), file.data);
+        }
+        const photo = { id: name.replace(/\./g, '-'), src: 'assets/gallery/' + name, caption };
+        ev.photos.push(photo);
+        added.push(photo);
+      }
+      await writeJSON('gallery.json', data, r.sha);
+      jsonRes(res, 200, { ok: true, added });
+    } catch (e) { jsonRes(res, 500, { error: e.message }); }
+    return;
   }
 
   // ── API : Supprimer une photo ──
