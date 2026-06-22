@@ -521,6 +521,31 @@ const server = http.createServer(async (req, res) => {
     jsonRes(res, r.status === 0 ? 200 : 500, { ok: r.status === 0, out: (r.stdout||'')+(r.stderr||'') }); return;
   }
 
+  // ── API : Statut enregistrement vidéo ──
+  if (url.startsWith('/api/record-status') && req.method === 'GET') {
+    if (!ONLINE) { jsonRes(res, 400, { error: 'Mode local' }); return; }
+    const qs        = url.includes('?') ? url.split('?')[1] : '';
+    const projectId = safeStr(new URLSearchParams(qs).get('projectId') || '', 60);
+    if (!projectId) { jsonRes(res, 400, { error: 'projectId manquant' }); return; }
+    try {
+      const runs = await ghRequest('GET',
+        '/repos/' + GH_OWNER + '/' + GH_REPO +
+        '/actions/workflows/record-demo.yml/runs?per_page=5', null);
+      const run = (runs.workflow_runs || []).find(r =>
+        r.name === 'Record Demo Video' &&
+        (r.status === 'in_progress' || r.status === 'queued' || r.status === 'completed')
+      );
+      if (!run) { jsonRes(res, 200, { status: 'unknown' }); return; }
+      jsonRes(res, 200, {
+        status:     run.status,
+        conclusion: run.conclusion || null,
+        runId:      run.id,
+        url:        run.html_url,
+      });
+    } catch (e) { jsonRes(res, 500, { error: e.message }); }
+    return;
+  }
+
   // ── API : Enregistrer vidéo démo via GitHub Actions ──
   if (url === '/api/record-demo' && req.method === 'POST') {
     if (!ONLINE) { jsonRes(res, 400, { error: 'Disponible uniquement en mode en ligne (GitHub Actions requis).' }); return; }

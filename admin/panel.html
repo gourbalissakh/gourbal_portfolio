@@ -685,8 +685,33 @@ async function recordDemo(projectId, projectUrl, projectName) {
   if (!confirm('Lancer l\'enregistrement vidéo de "' + projectName + '" ?\n\nChrome va visiter l\'URL et enregistrer ~30s de vidéo via GitHub Actions (~2 min).')) return;
   toast('Enregistrement lancé… ⏳');
   const r = await api('POST', '/api/record-demo', { projectId, projectUrl, projectName });
-  if (r.ok) toast('✅ ' + (r.message || 'Vidéo en cours d\'enregistrement !'));
-  else toast(r.error || 'Erreur lors du lancement', true);
+  if (!r.ok) { toast(r.error || 'Erreur lors du lancement', true); return; }
+  toast('⏳ Vidéo en cours d\'enregistrement…');
+  pollRecordStatus(projectId, projectName);
+}
+
+function pollRecordStatus(projectId, projectName) {
+  let attempts = 0;
+  const MAX = 24; // 24 × 15s = 6 min max
+  const iv = setInterval(async () => {
+    attempts++;
+    if (attempts > MAX) {
+      clearInterval(iv);
+      toast('⚠️ Délai dépassé — vérifie GitHub Actions.', true);
+      return;
+    }
+    try {
+      const s = await api('GET', '/api/record-status?projectId=' + encodeURIComponent(projectId));
+      if (s.status === 'completed') {
+        clearInterval(iv);
+        if (s.conclusion === 'success') {
+          toast('🎬 Vidéo de "' + projectName + '" prête ! Portfolio mis à jour.');
+        } else {
+          toast('❌ Enregistrement échoué (' + (s.conclusion || '?') + '). Voir GitHub Actions.', true);
+        }
+      }
+    } catch (_) { /* on continue */ }
+  }, 15000);
 }
 
 // ── Skills ────────────────────────────────────────────────────────────────
