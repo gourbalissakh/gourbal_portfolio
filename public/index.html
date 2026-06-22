@@ -1001,18 +1001,46 @@
       // Vimeo: vimeo.com/ID
       const vm = url.match(/vimeo\.com\/(\d+)/);
       if (vm) return 'https://player.vimeo.com/video/' + vm[1] + '?autoplay=1';
-      return url;
+      return null; // fichier local (.webm) — géré via <video>
     }
 
+    // Éléments réutilisables pour la modale vidéo
+    const vidIframe = document.createElement('iframe');
+    vidIframe.allow = 'autoplay; fullscreen';
+    vidIframe.allowFullscreen = true;
+    vidIframe.style.cssText = 'width:100%;height:100%;border:none;display:block';
+
+    const vidVideo  = document.createElement('video');
+    vidVideo.controls = true;
+    vidVideo.autoplay = true;
+    vidVideo.style.cssText = 'width:100%;height:100%;display:block;background:#000;border-radius:14px';
+    const vidSource = document.createElement('source');
+    vidVideo.appendChild(vidSource);
+
     function openVideoModal(url, title) {
-      vidFrame.src = toEmbedUrl(url);
+      const embed = toEmbedUrl(url);
+      const inner = document.getElementById('vid-modal-inner');
+      // Retirer l'élément précédent s'il est là
+      if (inner.contains(vidIframe)) inner.removeChild(vidIframe);
+      if (inner.contains(vidVideo))  inner.removeChild(vidVideo);
+      if (embed) {
+        vidIframe.src = embed;
+        inner.appendChild(vidIframe);
+      } else {
+        vidSource.src  = url;
+        vidSource.type = url.endsWith('.webm') ? 'video/webm' : 'video/mp4';
+        vidVideo.load();
+        inner.appendChild(vidVideo);
+      }
       vidTitle.textContent = title || '';
       vidModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function closeVideoModal() {
       vidModal.classList.remove('open');
-      vidFrame.src = '';
+      const inner = document.getElementById('vid-modal-inner');
+      if (inner.contains(vidIframe)) { vidIframe.src = ''; inner.removeChild(vidIframe); }
+      if (inner.contains(vidVideo))  { vidVideo.pause(); vidSource.src = ''; inner.removeChild(vidVideo); }
       document.body.style.overflow = '';
     }
     vidClose.addEventListener('click', closeVideoModal);

@@ -78,6 +78,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .btn-del{padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(255,107,107,.25);
   background:transparent;color:var(--coral);font-size:.75rem;cursor:pointer;transition:all .18s;font-family:var(--font)}
 .btn-del:hover{background:rgba(255,107,107,.1)}
+.btn-rec{padding:.3rem .55rem;border-radius:6px;border:1px solid rgba(191,150,255,.3);
+  background:transparent;color:var(--violet);font-size:.8rem;cursor:pointer;transition:all .18s;font-family:var(--font)}
+.btn-rec:hover:not(:disabled){border-color:var(--violet);background:rgba(191,150,255,.12)}
 .skills-admin{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.8rem}
 .sk-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:.9rem;
   display:flex;align-items:center;gap:.75rem;transition:border-color .2s}
@@ -613,7 +616,12 @@ function renderProjects() {
     eb.addEventListener('click', () => openProjModal(p));
     const db = txt('button', 'btn-del', 'Supprimer');
     db.addEventListener('click', () => deleteProject(p.id));
-    ap(acts, eb, db); tdA.appendChild(acts);
+    const liveUrl2 = p.customDomain ? 'https://' + p.customDomain : p.hostedUrl;
+    const rb = txt('button', 'btn-rec', '🎬');
+    rb.title = 'Enregistrer une vidéo démo';
+    if (!liveUrl2) { rb.disabled = true; rb.title = 'Ajoutez un lien Live d\'abord'; rb.style.opacity = '.35'; }
+    rb.addEventListener('click', () => recordDemo(p.id, liveUrl2, p.name));
+    ap(acts, eb, rb, db); tdA.appendChild(acts);
 
     ap(tr, tdN, tdC, tdS, tdL, tdA);
     tbody.appendChild(tr);
@@ -670,6 +678,15 @@ async function deleteProject(id) {
   const r = await api('DELETE', '/api/projects/' + encodeURIComponent(id));
   if (r.ok) { toast('Projet supprimé.'); await loadAll(); }
   else toast(r.error || 'Erreur', true);
+}
+
+async function recordDemo(projectId, projectUrl, projectName) {
+  if (!projectUrl) { toast('Ajoutez un lien Live au projet d\'abord.', true); return; }
+  if (!confirm('Lancer l\'enregistrement vidéo de "' + projectName + '" ?\n\nChrome va visiter l\'URL et enregistrer ~30s de vidéo via GitHub Actions (~2 min).')) return;
+  toast('Enregistrement lancé… ⏳');
+  const r = await api('POST', '/api/record-demo', { projectId, projectUrl, projectName });
+  if (r.ok) toast('✅ ' + (r.message || 'Vidéo en cours d\'enregistrement !'));
+  else toast(r.error || 'Erreur lors du lancement', true);
 }
 
 // ── Skills ────────────────────────────────────────────────────────────────

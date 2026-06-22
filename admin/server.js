@@ -521,6 +521,26 @@ const server = http.createServer(async (req, res) => {
     jsonRes(res, r.status === 0 ? 200 : 500, { ok: r.status === 0, out: (r.stdout||'')+(r.stderr||'') }); return;
   }
 
+  // ── API : Enregistrer vidéo démo via GitHub Actions ──
+  if (url === '/api/record-demo' && req.method === 'POST') {
+    if (!ONLINE) { jsonRes(res, 400, { error: 'Disponible uniquement en mode en ligne (GitHub Actions requis).' }); return; }
+    const buf = await readBody(req);
+    let body; try { body = JSON.parse(buf.toString('utf8')); } catch { jsonRes(res, 400, { error: 'JSON invalide' }); return; }
+    const projectId   = safeStr(body.projectId, 60);
+    const projectUrl  = safeUrl(body.projectUrl);
+    const projectName = safeStr(body.projectName, 80);
+    if (!projectId || !projectUrl) { jsonRes(res, 400, { error: 'projectId et projectUrl requis.' }); return; }
+    try {
+      const ghPath = '/repos/' + GH_OWNER + '/' + GH_REPO + '/actions/workflows/record-demo.yml/dispatches';
+      await ghRequest('POST', ghPath, {
+        ref: GH_BRANCH,
+        inputs: { project_id: projectId, project_url: projectUrl, project_name: projectName },
+      });
+      jsonRes(res, 200, { ok: true, message: 'Enregistrement lancé ! La vidéo sera disponible dans ~2 minutes.' });
+    } catch (e) { jsonRes(res, 500, { error: e.message }); }
+    return;
+  }
+
   jsonRes(res, 404, { error: 'Route introuvable' });
 });
 

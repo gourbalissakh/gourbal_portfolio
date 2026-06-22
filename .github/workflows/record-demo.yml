@@ -1,0 +1,44 @@
+name: Record Demo Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: 'ID du projet (slug)'
+        required: true
+      project_url:
+        description: 'URL à enregistrer'
+        required: true
+      project_name:
+        description: 'Nom du projet'
+        required: true
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install playwright-core @playwright/test
+          npx playwright install chromium --with-deps
+
+      - name: Record demo video
+        run: node scripts/record-demo.js
+        env:
+          PROJECT_ID: ${{ github.event.inputs.project_id }}
+          PROJECT_URL: ${{ github.event.inputs.project_url }}
+          PROJECT_NAME: ${{ github.event.inputs.project_name }}
+
+      - name: Commit video + update projects.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/assets/demos/ src/data/projects.json
+          git diff --staged --quiet || git commit -m "demo: record ${{ github.event.inputs.project_id }}"
+          git push
