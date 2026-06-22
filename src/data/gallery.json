@@ -1,3 +1,11 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "forum-des-metiers-2025",
+      "title": "Forum des Métiers des Etudiants Tchadiens a Létranger",
+      "description": "J’ai eu l’honneur de participer au Forum des Métiers des Étudiants Tchadiens à l’Étranger, organisé par l’ASEETS du 6 au 7 décembre 2025.\nCet événement a réuni des étudiants, des professionnels et des porteurs de projets autour de moments forts dédiés à l’avenir du Tchad.",
+      "date": "Decembre 2025",
+      "photos": []
+    }
+  ]
 }
