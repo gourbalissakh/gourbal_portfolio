@@ -1,6 +1,29 @@
 {
   "projects": [
     {
+      "id": "projet_aet",
+      "name": "DocHub",
+      "description": "Ceci est une Application développer par Lamical des étudiants Tchadiens a Lestm.",
+      "stack": [
+        "React",
+        "Laravel",
+        "TailwindCSS"
+      ],
+      "githubUrl": "https://github.com/gourbalissakh/estm_dochub",
+      "hostedUrl": "https://estm-dochub.vercel.app/",
+      "videoUrl": null,
+      "platform": "other",
+      "customDomain": null,
+      "imageUrl": "",
+      "badgeColor": "primary",
+      "badgeTextDark": false,
+      "icon": "bi-folder-fill",
+      "titleColor": "primary",
+      "category": "web",
+      "featured": false,
+      "updatedAt": "2026-06-22"
+    },
+    {
       "id": "application_test",
       "name": "Tiktok",
       "description": "Aucune description pour cette Application de Test .",
