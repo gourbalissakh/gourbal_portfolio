@@ -1,10 +1,37 @@
 {
   "projects": [
     {
+      "id": "application_test",
+      "name": "Tiktok",
+      "description": "Aucune description pour cette Application de Test .",
+      "stack": [
+        "Flutter",
+        "Laravel",
+        "Bootsrap"
+      ],
+      "githubUrl": "https://github.com/gourbalissakh",
+      "hostedUrl": "https://youtu.be/vDMyIZ2nsS0?si=lH9Y5y3nBnNrw87-",
+      "platform": "other",
+      "customDomain": "gourbal.me",
+      "imageUrl": "https://i.pinimg.com/1200x/be/db/aa/bedbaa683c5fe8d00065714f834a50e9.jpg",
+      "badgeColor": "primary",
+      "badgeTextDark": false,
+      "icon": "bi-folder-fill",
+      "titleColor": "primary",
+      "category": "mobile",
+      "featured": false,
+      "updatedAt": "2026-06-22"
+    },
+    {
       "id": "qcm-ia",
       "name": "QCM avec IA",
       "description": "Application full-stack générant automatiquement des QCM à partir de fichiers PDF grâce à l'IA (React + Laravel + REST API).",
-      "stack": ["React", "Laravel", "REST API", "PHP"],
+      "stack": [
+        "React",
+        "Laravel",
+        "REST API",
+        "PHP"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -22,7 +49,11 @@
       "id": "blog-estm",
       "name": "Blog Communautaire ESTM",
       "description": "Site PHP/MySQL avec gestion d'articles, système de rôles (admin/auteur/lecteur), sécurité renforcée et interface Bootstrap 5.",
-      "stack": ["PHP", "MySQL", "Bootstrap 5"],
+      "stack": [
+        "PHP",
+        "MySQL",
+        "Bootstrap 5"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -40,7 +71,12 @@
       "id": "systeme-qcm",
       "name": "Système de QCM",
       "description": "Plateforme PHP/MySQL dynamique pour créer et passer des questionnaires en ligne, avec frontend interactif en JavaScript.",
-      "stack": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+      "stack": [
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "Bootstrap"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -58,7 +94,11 @@
       "id": "gestion-restaurant",
       "name": "App Gestion de Restaurant",
       "description": "Application bureau C# + SQL Server : gestion des menus, commandes en temps réel, suivi des stocks et paiements.",
-      "stack": ["C#", "SQL Server", ".NET"],
+      "stack": [
+        "C#",
+        "SQL Server",
+        ".NET"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -76,7 +116,11 @@
       "id": "gestion-reparations",
       "name": "Gestion Réparations Véhicules",
       "description": "Système PHP/MySQL pour garage automobile : gestion clients, suivi véhicules et réparations, modélisation Merise complète.",
-      "stack": ["PHP", "MySQL", "Merise"],
+      "stack": [
+        "PHP",
+        "MySQL",
+        "Merise"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -94,7 +138,10 @@
       "id": "clone-tiktok",
       "name": "Clone TikTok",
       "description": "Application mobile Flutter inspirée de TikTok — fil de vidéos vertical, interactions (like/commentaire), navigation par swipe.",
-      "stack": ["Flutter", "Dart"],
+      "stack": [
+        "Flutter",
+        "Dart"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -112,7 +159,10 @@
       "id": "gestion-hotels",
       "name": "Gestion Hôtels",
       "description": "Application mobile Flutter de gestion hôtelière complète — réservations, chambres, clients et tableau de bord analytique.",
-      "stack": ["Flutter", "Dart"],
+      "stack": [
+        "Flutter",
+        "Dart"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -130,7 +180,13 @@
       "id": "hacking-ethique",
       "name": "Hacking Éthique",
       "description": "Projets de tests d'intrusion : scans Nmap, exploitation DVWA, attaques par dictionnaire Hydra et modules Metasploit.",
-      "stack": ["Kali Linux", "Metasploit", "Nmap", "Hydra", "DVWA"],
+      "stack": [
+        "Kali Linux",
+        "Metasploit",
+        "Nmap",
+        "Hydra",
+        "DVWA"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -148,7 +204,11 @@
       "id": "analyse-reseau",
       "name": "Analyse Réseau",
       "description": "Topologies Packet Tracer, configuration IP/VLAN, routage statique et dynamique, analyse de trames réseau avec Wireshark.",
-      "stack": ["Wireshark", "Packet Tracer", "Linux"],
+      "stack": [
+        "Wireshark",
+        "Packet Tracer",
+        "Linux"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -166,7 +226,11 @@
       "id": "dhcp-reseau",
       "name": "Projet DHCP Réseau",
       "description": "Configuration d'un serveur DHCP sécurisé sous Linux, détection et prévention de serveurs DHCP pirates (rogue DHCP).",
-      "stack": ["Linux", "DHCP", "Wireshark"],
+      "stack": [
+        "Linux",
+        "DHCP",
+        "Wireshark"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -184,7 +248,13 @@
       "id": "docker-multi",
       "name": "Docker Multi-Services",
       "description": "Architecture multi-conteneurs orchestrée avec Docker Compose : PHP-FPM, MySQL, Redis, Nginx — isolation et networking.",
-      "stack": ["Docker", "Docker Compose", "PHP", "MySQL", "Nginx"],
+      "stack": [
+        "Docker",
+        "Docker Compose",
+        "PHP",
+        "MySQL",
+        "Nginx"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -202,7 +272,12 @@
       "id": "poubelle-intelligente",
       "name": "Poubelle Intelligente (IoT)",
       "description": "Projet embarqué Arduino Uno avec capteur ultrasonique HC-SR04 : ouverture automatique et indicateur de remplissage.",
-      "stack": ["Arduino", "C", "IoT", "HC-SR04"],
+      "stack": [
+        "Arduino",
+        "C",
+        "IoT",
+        "HC-SR04"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
@@ -220,7 +295,10 @@
       "id": "python-gui",
       "name": "Application Python GUI",
       "description": "Interface graphique Tkinter pour une mini-app de gestion : formulaires, tableaux de données et navigation entre vues.",
-      "stack": ["Python", "Tkinter"],
+      "stack": [
+        "Python",
+        "Tkinter"
+      ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
       "platform": "other",
