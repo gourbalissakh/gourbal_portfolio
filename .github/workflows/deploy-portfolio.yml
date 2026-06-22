@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/data/projects.json"
+      - "src/data/**"
       - "public/**"
       - "scripts/build.js"
 
@@ -26,4 +26,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=portfolio
+          command: pages deploy public --project-name=portfolio-gourbal --no-bundle
