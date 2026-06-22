@@ -192,6 +192,10 @@
     .pc.featured:hover { border-color:var(--gold); box-shadow:0 24px 64px rgba(255,209,102,.08); }
     /* hauteur = largeur / 3.77 pour respecter le ratio 660×175 des SVG */
     .pb { height:175px; position:relative; overflow:hidden; flex-shrink:0; background:linear-gradient(140deg,var(--bg2),rgba(126,255,245,.06)); }
+    .pb-video { width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+    .pb-play-hint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:0; transition:opacity .25s; }
+    .pb:hover .pb-play-hint { opacity:1; }
+    .pb-play-hint i { font-size:2.2rem; color:#fff; filter:drop-shadow(0 2px 8px rgba(0,0,0,.6)); }
     /* SVG bannières : background-size 100% 100% = remplissage exact sans coupure */
     .pb-img { width:100%; height:100%; background-size:100% 100%; background-position:center; background-repeat:no-repeat; }
     /* photo réelle : object-fit cover */
@@ -768,25 +772,41 @@
 
       // banner
       const bn = mk('div', 'pb');
-      const imgSrc = safeSrc(p.imageUrl);
-      if (imgSrc) {
-        const isSvg = imgSrc.endsWith('.svg');
-        if (isSvg) {
-          // SVG bannière : background-image → pas de recadrage
-          const div = mk('div', 'pb-img');
-          div.style.backgroundImage = 'url(' + imgSrc + ')';
-          bn.appendChild(div);
-        } else {
-          // photo réelle : <img> avec object-fit:cover
-          const img = mk('img', 'pb-photo');
-          img.src = imgSrc; img.alt = p.name; img.loading = 'lazy';
-          bn.appendChild(img);
-        }
+      const isLocalVideo = p.videoUrl && !p.videoUrl.startsWith('http');
+      if (isLocalVideo) {
+        // Vidéo locale .webm — joue en bannière, clic → modale plein écran
+        const vid = mk('video', 'pb-video');
+        vid.muted = true; vid.autoplay = true; vid.loop = true; vid.playsInline = true;
+        vid.preload = 'metadata';
+        const src = document.createElement('source');
+        src.src  = p.videoUrl;
+        src.type = p.videoUrl.endsWith('.webm') ? 'video/webm' : 'video/mp4';
+        vid.appendChild(src);
+        vid.addEventListener('click', e => { e.stopPropagation(); openVideoModal(p.videoUrl, p.name); });
+        bn.appendChild(vid);
+        const hint = mk('div', 'pb-play-hint');
+        const hic = mk('i', 'bi bi-fullscreen');
+        hint.appendChild(hic);
+        bn.appendChild(hint);
       } else {
-        const iw = mk('div', 'pb-icon');
-        const ic = mk('i');
-        ic.className = 'bi ' + icon;
-        iw.appendChild(ic); bn.appendChild(iw);
+        const imgSrc = safeSrc(p.imageUrl);
+        if (imgSrc) {
+          const isSvg = imgSrc.endsWith('.svg');
+          if (isSvg) {
+            const div = mk('div', 'pb-img');
+            div.style.backgroundImage = 'url(' + imgSrc + ')';
+            bn.appendChild(div);
+          } else {
+            const img = mk('img', 'pb-photo');
+            img.src = imgSrc; img.alt = p.name; img.loading = 'lazy';
+            bn.appendChild(img);
+          }
+        } else {
+          const iw = mk('div', 'pb-icon');
+          const ic = mk('i');
+          ic.className = 'bi ' + icon;
+          iw.appendChild(ic); bn.appendChild(iw);
+        }
       }
       const bgs = mk('div', 'pbadges');
       const cb = mk('span', 'badge ' + (CAT_CLS[cat] || 'bw'));
@@ -837,7 +857,8 @@
         a.appendChild(document.createTextNode(' Live'));
         foot.appendChild(a);
       }
-      if (p.videoUrl) {
+      if (p.videoUrl && !isLocalVideo) {
+        // YouTube/Vimeo → bouton dans le pied de card
         const btn = mk('button', 'pbtn pbtn-demo');
         btn.type = 'button';
         const ic = mk('i', 'bi bi-play-circle-fill');
