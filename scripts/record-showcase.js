@@ -16,11 +16,33 @@ const OUT_DIR        = path.join(__dirname, '..', 'showcase-videos');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
-async function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+async function safeClick(page, selector) {
+  try {
+    await page.waitForSelector(selector, { timeout: 8000, state: 'visible' });
+    await page.click(selector);
+    return true;
+  } catch (e) {
+    console.warn('safeClick échoué sur ' + selector + ' : ' + e.message);
+    return false;
+  }
+}
+
+async function scrollTo(page, y) {
+  await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'smooth' }), y);
+}
+
+async function scrollToSection(page, selector) {
+  await page.evaluate(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, selector);
+}
 
 async function recordPage(browser, url, filename, actions) {
-  console.log('\n▶ Enregistrement : ' + filename);
-  const tmpDir = path.join(OUT_DIR, 'tmp_' + filename.replace('.webm',''));
+  console.log('\n▶ Enregistrement : ' + filename + ' (' + url + ')');
+  const tmpDir = path.join(OUT_DIR, 'tmp_' + filename.replace('.webm', ''));
   if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
   const ctx = await browser.newContext({
@@ -29,94 +51,86 @@ async function recordPage(browser, url, filename, actions) {
   });
   const page = await ctx.newPage();
 
+  console.log('Chargement de ' + url + '...');
   try {
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
   } catch (_) {
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    } catch (e2) {
+      console.error('Impossible de charger ' + url + ' : ' + e2.message);
+      await ctx.close();
+      return;
+    }
   }
+  console.log('Page chargée.');
   await wait(3000);
 
-  await actions(page);
+  try {
+    await actions(page);
+  } catch (e) {
+    console.error('Erreur pendant actions : ' + e.message);
+  }
 
   await wait(2000);
   await ctx.close();
 
   const files = fs.readdirSync(tmpDir).filter(f => f.endsWith('.webm'));
-  if (!files.length) { console.error('Pas de vidéo pour ' + filename); process.exit(1); }
+  if (!files.length) { console.error('Pas de vidéo générée pour ' + filename); return; }
   const dest = path.join(OUT_DIR, filename);
   if (fs.existsSync(dest)) fs.unlinkSync(dest);
   fs.renameSync(path.join(tmpDir, files[0]), dest);
-  fs.rmdirSync(tmpDir);
-  console.log('✅ ' + dest);
-}
-
-// ── Scroll smooth sur Y ──
-async function scrollTo(page, y) {
-  await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'smooth' }), y);
-}
-async function scrollToEl(page, selector) {
-  await page.evaluate(sel => {
-    const el = document.querySelector(sel);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, selector);
+  try { fs.rmdirSync(tmpDir); } catch (_) {}
+  console.log('✅ Vidéo sauvegardée : ' + dest);
 }
 
 (async () => {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
 
   // ══════════════════════════════════════════════════════════════════════════
   // 1. PORTFOLIO — ~90 secondes
   // ══════════════════════════════════════════════════════════════════════════
   await recordPage(browser, PORTFOLIO_URL, 'portfolio.webm', async (page) => {
-
-    // Hero — laisser les animations se faire
+    // Hero — animations d'entrée
     await wait(4000);
 
-    // Scroll lent vers À propos
-    await scrollToEl(page, '#apropos');
+    // À propos
+    await scrollToSection(page, '#apropos');
     await wait(4000);
 
-    // Scroll vers Compétences — pause longue pour lire
-    await scrollToEl(page, '#competences');
+    // Compétences
+    await scrollToSection(page, '#competences');
     await wait(5000);
-
-    // Scroll progressif dans les compétences
-    const compHeight = await page.evaluate(() => {
+    await scrollTo(page, await page.evaluate(() => {
       const el = document.querySelector('#competences');
-      return el ? el.offsetHeight : 0;
-    });
-    await scrollTo(page, await page.evaluate(() => document.querySelector('#competences').offsetTop + 300));
+      return el ? el.offsetTop + 400 : 800;
+    }));
     await wait(3000);
 
-    // Scroll vers Projets
-    await scrollToEl(page, '#projets');
+    // Projets
+    await scrollToSection(page, '#projets');
     await wait(4000);
 
     // Scroll dans la grille projets
-    await scrollTo(page, await page.evaluate(() => {
-      const el = document.querySelector('#projets');
-      return el ? el.offsetTop + 400 : 1200;
-    }));
-    await wait(3000);
+    for (const offset of [400, 900, 1400, 1900]) {
+      await scrollTo(page, await page.evaluate(off => {
+        const el = document.querySelector('#projets');
+        return el ? el.offsetTop + off : off;
+      }, offset));
+      await wait(3000);
+    }
 
-    await scrollTo(page, await page.evaluate(() => {
-      const el = document.querySelector('#projets');
-      return el ? el.offsetTop + 900 : 1800;
-    }));
-    await wait(3000);
-
-    await scrollTo(page, await page.evaluate(() => {
-      const el = document.querySelector('#projets');
-      return el ? el.offsetTop + 1400 : 2400;
-    }));
-    await wait(3000);
-
-    // Scroll vers Galerie
-    await scrollToEl(page, '#galerie');
+    // Galerie
+    await scrollToSection(page, '#galerie');
     await wait(5000);
+    await scrollTo(page, await page.evaluate(() => {
+      const el = document.querySelector('#galerie');
+      return el ? el.offsetTop + 400 : 2000;
+    }));
+    await wait(3000);
 
-    // Scroll vers Contact
-    await scrollToEl(page, '#contact');
+    // Contact
+    await scrollToSection(page, '#contact');
     await wait(4000);
 
     // Retour en haut
@@ -126,57 +140,64 @@ async function scrollToEl(page, selector) {
 
   // ══════════════════════════════════════════════════════════════════════════
   // 2. ADMIN — ~60 secondes
+  // Render.com free tier peut prendre 50s à démarrer
   // ══════════════════════════════════════════════════════════════════════════
   await recordPage(browser, ADMIN_URL, 'admin.webm', async (page) => {
 
-    // Login si page de connexion présente
+    // Login
     if (ADMIN_PASSWORD) {
       try {
-        await page.waitForSelector('input[type="password"]', { timeout: 8000 });
+        await page.waitForSelector('input[type="password"]', { timeout: 15000, state: 'visible' });
         await wait(1000);
         await page.fill('input[type="password"]', ADMIN_PASSWORD);
         await wait(800);
         await page.keyboard.press('Enter');
-        await wait(3000);
-      } catch (_) {}
+        await wait(4000);
+      } catch (_) {
+        console.log('Pas de page de login — déjà connecté ou timeout.');
+      }
     }
 
-    // Dashboard — lire les stats
-    await wait(4000);
-    await scrollTo(page, 300);
-    await wait(2000);
-    await scrollTo(page, 0);
-    await wait(1500);
-
-    // Aller sur Projets
-    await page.click('.sb-item[data-page="projects"]');
+    // Dashboard
     await wait(4000);
     await scrollTo(page, 400);
     await wait(2500);
-    await scrollTo(page, 800);
-    await wait(2000);
     await scrollTo(page, 0);
-    await wait(1500);
-
-    // Aller sur Compétences
-    await page.click('.sb-item[data-page="skills"]');
-    await wait(4000);
-    await scrollTo(page, 300);
     await wait(2000);
-    await scrollTo(page, 0);
-    await wait(1500);
 
-    // Aller sur Galerie
-    await page.click('.sb-item[data-page="gallery"]');
-    await wait(4000);
-    await scrollTo(page, 300);
-    await wait(2000);
+    // Projets
+    if (await safeClick(page, '.sb-item[data-page="projects"]')) {
+      await wait(4000);
+      await scrollTo(page, 500);
+      await wait(2500);
+      await scrollTo(page, 1000);
+      await wait(2000);
+      await scrollTo(page, 0);
+      await wait(1500);
+    }
+
+    // Compétences
+    if (await safeClick(page, '.sb-item[data-page="skills"]')) {
+      await wait(4000);
+      await scrollTo(page, 400);
+      await wait(2500);
+      await scrollTo(page, 0);
+      await wait(1500);
+    }
+
+    // Galerie
+    if (await safeClick(page, '.sb-item[data-page="gallery"]')) {
+      await wait(4000);
+      await scrollTo(page, 400);
+      await wait(2500);
+    }
 
     // Retour Dashboard
-    await page.click('.sb-item[data-page="dashboard"]');
-    await wait(3000);
+    if (await safeClick(page, '.sb-item[data-page="dashboard"]')) {
+      await wait(3000);
+    }
   });
 
   await browser.close();
-  console.log('\n🎬 Les deux vidéos sont prêtes dans showcase-videos/');
+  console.log('\n🎬 Terminé. Vidéos dans showcase-videos/');
 })();
