@@ -1,0 +1,38 @@
+name: Record Showcase Videos
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install playwright-core @playwright/test
+          npx playwright install chromium --with-deps
+
+      - name: Record portfolio + admin
+        run: node scripts/record-showcase.js
+        env:
+          PORTFOLIO_URL: https://gourbal.me
+          ADMIN_URL: https://gourbal-portfolio.onrender.com/admin
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
+      - name: Upload videos as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: showcase-videos
+          path: showcase-videos/
+          retention-days: 7
