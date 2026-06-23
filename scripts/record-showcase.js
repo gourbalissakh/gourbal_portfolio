@@ -1,13 +1,8 @@
 #!/usr/bin/env node
 /**
  * Enregistre deux vidéos showcase :
- *   1. portfolio.webm — visite de gourbal.me
- *   2. admin.webm    — visite du panel admin avec login automatique
- *
- * Variables d'env :
- *   PORTFOLIO_URL  — ex: https://gourbal.me
- *   ADMIN_URL      — ex: https://gourbal-portfolio.onrender.com/admin
- *   ADMIN_PASSWORD — mot de passe admin (GitHub secret)
+ *   1. portfolio.webm — visite complète de gourbal.me (~90s)
+ *   2. admin.webm    — visite du panel admin avec navigation (~60s)
  */
 
 const { chromium } = require('@playwright/test');
@@ -21,15 +16,16 @@ const OUT_DIR        = path.join(__dirname, '..', 'showcase-videos');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
+async function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
 async function recordPage(browser, url, filename, actions) {
-  console.log('\n▶ Enregistrement : ' + filename + ' (' + url + ')');
-  const tmpDir = path.join(OUT_DIR, 'tmp_' + filename);
+  console.log('\n▶ Enregistrement : ' + filename);
+  const tmpDir = path.join(OUT_DIR, 'tmp_' + filename.replace('.webm',''));
   if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
 
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     recordVideo: { dir: tmpDir, size: { width: 1440, height: 900 } },
-    deviceScaleFactor: 1,
   });
   const page = await ctx.newPage();
 
@@ -38,82 +34,147 @@ async function recordPage(browser, url, filename, actions) {
   } catch (_) {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   }
-  await page.waitForTimeout(2000);
+  await wait(3000);
 
-  if (actions) await actions(page);
+  await actions(page);
 
-  await page.waitForTimeout(1500);
+  await wait(2000);
   await ctx.close();
 
-  // Renommer le fichier généré
   const files = fs.readdirSync(tmpDir).filter(f => f.endsWith('.webm'));
-  if (!files.length) { console.error('Pas de vidéo générée pour ' + filename); process.exit(1); }
+  if (!files.length) { console.error('Pas de vidéo pour ' + filename); process.exit(1); }
   const dest = path.join(OUT_DIR, filename);
   if (fs.existsSync(dest)) fs.unlinkSync(dest);
   fs.renameSync(path.join(tmpDir, files[0]), dest);
   fs.rmdirSync(tmpDir);
-  console.log('✅ Sauvegardé : ' + dest);
+  console.log('✅ ' + dest);
+}
+
+// ── Scroll smooth sur Y ──
+async function scrollTo(page, y) {
+  await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'smooth' }), y);
+}
+async function scrollToEl(page, selector) {
+  await page.evaluate(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, selector);
 }
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
 
-  // ── 1. Portfolio ──────────────────────────────────────────────────────────
+  // ══════════════════════════════════════════════════════════════════════════
+  // 1. PORTFOLIO — ~90 secondes
+  // ══════════════════════════════════════════════════════════════════════════
   await recordPage(browser, PORTFOLIO_URL, 'portfolio.webm', async (page) => {
-    // Scroll progressif sur toute la page
-    await page.evaluate(async () => {
-      const sections = ['#apropos', '#competences', '#projets', '#galerie', '#contact'];
-      for (const sel of sections) {
-        const el = document.querySelector(sel);
-        if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
-        await new Promise(r => setTimeout(r, 2200));
-      }
-      await new Promise(r => setTimeout(r, 800));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      await new Promise(r => setTimeout(r, 1000));
+
+    // Hero — laisser les animations se faire
+    await wait(4000);
+
+    // Scroll lent vers À propos
+    await scrollToEl(page, '#apropos');
+    await wait(4000);
+
+    // Scroll vers Compétences — pause longue pour lire
+    await scrollToEl(page, '#competences');
+    await wait(5000);
+
+    // Scroll progressif dans les compétences
+    const compHeight = await page.evaluate(() => {
+      const el = document.querySelector('#competences');
+      return el ? el.offsetHeight : 0;
     });
+    await scrollTo(page, await page.evaluate(() => document.querySelector('#competences').offsetTop + 300));
+    await wait(3000);
+
+    // Scroll vers Projets
+    await scrollToEl(page, '#projets');
+    await wait(4000);
+
+    // Scroll dans la grille projets
+    await scrollTo(page, await page.evaluate(() => {
+      const el = document.querySelector('#projets');
+      return el ? el.offsetTop + 400 : 1200;
+    }));
+    await wait(3000);
+
+    await scrollTo(page, await page.evaluate(() => {
+      const el = document.querySelector('#projets');
+      return el ? el.offsetTop + 900 : 1800;
+    }));
+    await wait(3000);
+
+    await scrollTo(page, await page.evaluate(() => {
+      const el = document.querySelector('#projets');
+      return el ? el.offsetTop + 1400 : 2400;
+    }));
+    await wait(3000);
+
+    // Scroll vers Galerie
+    await scrollToEl(page, '#galerie');
+    await wait(5000);
+
+    // Scroll vers Contact
+    await scrollToEl(page, '#contact');
+    await wait(4000);
+
+    // Retour en haut
+    await scrollTo(page, 0);
+    await wait(3000);
   });
 
-  // ── 2. Admin panel ────────────────────────────────────────────────────────
+  // ══════════════════════════════════════════════════════════════════════════
+  // 2. ADMIN — ~60 secondes
+  // ══════════════════════════════════════════════════════════════════════════
   await recordPage(browser, ADMIN_URL, 'admin.webm', async (page) => {
-    // Login
+
+    // Login si page de connexion présente
     if (ADMIN_PASSWORD) {
       try {
-        await page.waitForSelector('input[type="password"]', { timeout: 10000 });
+        await page.waitForSelector('input[type="password"]', { timeout: 8000 });
+        await wait(1000);
         await page.fill('input[type="password"]', ADMIN_PASSWORD);
+        await wait(800);
         await page.keyboard.press('Enter');
-        await page.waitForTimeout(2000);
-      } catch (_) {
-        console.log('Pas de page de login détectée, déjà connecté.');
-      }
+        await wait(3000);
+      } catch (_) {}
     }
 
-    // Dashboard
-    await page.waitForTimeout(1500);
+    // Dashboard — lire les stats
+    await wait(4000);
+    await scrollTo(page, 300);
+    await wait(2000);
+    await scrollTo(page, 0);
+    await wait(1500);
 
     // Aller sur Projets
-    const nav = await page.$('[data-page="projects"], #nav-projects, .nav-item');
-    if (nav) { await nav.click(); await page.waitForTimeout(1800); }
-
-    // Scroll dans la liste projets
-    await page.evaluate(async () => {
-      window.scrollTo({ top: 300, behavior: 'smooth' });
-      await new Promise(r => setTimeout(r, 1000));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      await new Promise(r => setTimeout(r, 800));
-    });
+    await page.click('.sb-item[data-page="projects"]');
+    await wait(4000);
+    await scrollTo(page, 400);
+    await wait(2500);
+    await scrollTo(page, 800);
+    await wait(2000);
+    await scrollTo(page, 0);
+    await wait(1500);
 
     // Aller sur Compétences
-    const navSk = await page.$('[data-page="skills"]');
-    if (navSk) { await navSk.click(); await page.waitForTimeout(1800); }
+    await page.click('.sb-item[data-page="skills"]');
+    await wait(4000);
+    await scrollTo(page, 300);
+    await wait(2000);
+    await scrollTo(page, 0);
+    await wait(1500);
 
     // Aller sur Galerie
-    const navGal = await page.$('[data-page="gallery"]');
-    if (navGal) { await navGal.click(); await page.waitForTimeout(1800); }
+    await page.click('.sb-item[data-page="gallery"]');
+    await wait(4000);
+    await scrollTo(page, 300);
+    await wait(2000);
 
     // Retour Dashboard
-    const navDash = await page.$('[data-page="dashboard"]');
-    if (navDash) { await navDash.click(); await page.waitForTimeout(1500); }
+    await page.click('.sb-item[data-page="dashboard"]');
+    await wait(3000);
   });
 
   await browser.close();
