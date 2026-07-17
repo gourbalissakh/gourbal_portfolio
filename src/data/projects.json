@@ -1,6 +1,30 @@
 {
   "projects": [
     {
+      "id": "smarttech",
+      "name": "Infrastructure Réseau SMARTTECH",
+      "description": "Déploiement et supervision dune infrastructure réseau complète \n(DNS, DHCP, LDAP, Zabbix, Nagios) pour une entreprise fictive.",
+      "stack": [
+        "Zabbix",
+        "Nagios",
+        "OpenLDAP",
+        "Linux"
+      ],
+      "githubUrl": "https://github.com/gourbalissakh/estm_dochub",
+      "hostedUrl": "https://github.com/gourbalissakh/estm_dochub",
+      "videoUrl": null,
+      "platform": "other",
+      "customDomain": null,
+      "imageUrl": "https://www.africauniv.com/web/image/7850-842ded0b/Article%20de%20blog%20%27Zabbix%20%3A%20Une%20solution%20de%20supervision%20et%20de%20monitoring%20pour%20les%20infrastructures%20IT%20complexes%27%2",
+      "badgeColor": "success",
+      "badgeTextDark": false,
+      "icon": "bi-folder-fill",
+      "titleColor": "primary",
+      "category": "security",
+      "featured": false,
+      "updatedAt": "2026-07-17"
+    },
+    {
       "id": "projet_aet",
       "name": "DocHub",
       "description": "Ceci est une Application développer par Lamical des étudiants Tchadiens a Lestm.",
