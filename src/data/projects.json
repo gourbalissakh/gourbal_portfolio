@@ -321,22 +321,23 @@
       "description": "Projet embarqué Arduino Uno avec capteur ultrasonique HC-SR04 : ouverture automatique et indicateur de remplissage.",
       "stack": [
         "Arduino",
-        "C",
+        "C++",
         "IoT",
         "HC-SR04"
       ],
       "githubUrl": "https://github.com/gourbalissakh",
       "hostedUrl": null,
+      "videoUrl": null,
       "platform": "other",
       "customDomain": null,
       "imageUrl": "assets/banners/poubelle-intelligente.svg",
       "badgeColor": "dark",
       "badgeTextDark": false,
       "icon": "bi-cpu-fill",
-      "titleColor": "dark",
+      "titleColor": "primary",
       "category": "iot",
       "featured": false,
-      "updatedAt": "2026-06-22"
+      "updatedAt": "2026-09-25"
     },
     {
       "id": "python-gui",
