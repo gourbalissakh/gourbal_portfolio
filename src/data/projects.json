@@ -314,27 +314,6 @@
       "category": "devops",
       "featured": false,
       "updatedAt": "2026-06-22"
-    },
-    {
-      "id": "python-gui",
-      "name": "Application Python GUI",
-      "description": "Interface graphique Tkinter pour une mini-app de gestion : formulaires, tableaux de données et navigation entre vues.",
-      "stack": [
-        "Python",
-        "Tkinter"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": null,
-      "platform": "other",
-      "customDomain": null,
-      "imageUrl": "assets/banners/python-gui.svg",
-      "badgeColor": "primary",
-      "badgeTextDark": false,
-      "icon": "bi-window",
-      "titleColor": "primary",
-      "category": "web",
-      "featured": false,
-      "updatedAt": "2026-06-22"
     }
   ]
 }
