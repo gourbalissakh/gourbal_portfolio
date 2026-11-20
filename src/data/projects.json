@@ -182,27 +182,6 @@
       "updatedAt": "2026-06-22"
     },
     {
-      "id": "clone-tiktok",
-      "name": "Clone TikTok",
-      "description": "Application mobile Flutter inspirée de TikTok — fil de vidéos vertical, interactions (like/commentaire), navigation par swipe.",
-      "stack": [
-        "Flutter",
-        "Dart"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": null,
-      "platform": "other",
-      "customDomain": null,
-      "imageUrl": "assets/banners/clone-tiktok.svg",
-      "badgeColor": "danger",
-      "badgeTextDark": false,
-      "icon": "bi-phone",
-      "titleColor": "danger",
-      "category": "mobile",
-      "featured": false,
-      "updatedAt": "2026-06-22"
-    },
-    {
       "id": "gestion-hotels",
       "name": "Gestion Hôtels",
       "description": "Application mobile Flutter de gestion hôtelière complète — réservations, chambres, clients et tableau de bord analytique.",
