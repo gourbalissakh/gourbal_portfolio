@@ -182,27 +182,6 @@
       "updatedAt": "2026-06-22"
     },
     {
-      "id": "gestion-hotels",
-      "name": "Gestion Hôtels",
-      "description": "Application mobile Flutter de gestion hôtelière complète — réservations, chambres, clients et tableau de bord analytique.",
-      "stack": [
-        "Flutter",
-        "Dart"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": null,
-      "platform": "other",
-      "customDomain": null,
-      "imageUrl": "assets/banners/gestion-hotels.svg",
-      "badgeColor": "info",
-      "badgeTextDark": false,
-      "icon": "bi-building",
-      "titleColor": "info",
-      "category": "mobile",
-      "featured": false,
-      "updatedAt": "2026-06-22"
-    },
-    {
       "id": "hacking-ethique",
       "name": "Hacking Éthique",
       "description": "Projets de tests d'intrusion : scans Nmap, exploitation DVWA, attaques par dictionnaire Hydra et modules Metasploit.",
