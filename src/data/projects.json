@@ -138,28 +138,6 @@
       "updatedAt": "2026-06-22"
     },
     {
-      "id": "gestion-restaurant",
-      "name": "App Gestion de Restaurant",
-      "description": "Application bureau C# + SQL Server : gestion des menus, commandes en temps réel, suivi des stocks et paiements.",
-      "stack": [
-        "C#",
-        "SQL Server",
-        ".NET"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": null,
-      "platform": "other",
-      "customDomain": null,
-      "imageUrl": "assets/banners/gestion-restaurant.svg",
-      "badgeColor": "warning",
-      "badgeTextDark": true,
-      "icon": "bi-cup-straw",
-      "titleColor": "warning",
-      "category": "web",
-      "featured": false,
-      "updatedAt": "2026-06-22"
-    },
-    {
       "id": "gestion-reparations",
       "name": "Gestion Réparations Véhicules",
       "description": "Système PHP/MySQL pour garage automobile : gestion clients, suivi véhicules et réparations, modélisation Merise complète.",
