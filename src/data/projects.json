@@ -290,30 +290,6 @@
       "category": "security",
       "featured": false,
       "updatedAt": "2026-06-22"
-    },
-    {
-      "id": "docker-multi",
-      "name": "Docker Multi-Services",
-      "description": "Architecture multi-conteneurs orchestrée avec Docker Compose : PHP-FPM, MySQL, Redis, Nginx — isolation et networking.",
-      "stack": [
-        "Docker",
-        "Docker Compose",
-        "PHP",
-        "MySQL",
-        "Nginx"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": null,
-      "platform": "other",
-      "customDomain": null,
-      "imageUrl": "assets/banners/docker-multi.svg",
-      "badgeColor": "secondary",
-      "badgeTextDark": false,
-      "icon": "bi-layers",
-      "titleColor": "secondary",
-      "category": "devops",
-      "featured": false,
-      "updatedAt": "2026-06-22"
     }
   ]
 }
