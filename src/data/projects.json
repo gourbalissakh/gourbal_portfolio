@@ -48,28 +48,6 @@
       "updatedAt": "2026-06-22"
     },
     {
-      "id": "application_test",
-      "name": "Tiktok",
-      "description": "Aucune description pour cette Application de Test .",
-      "stack": [
-        "Flutter",
-        "Laravel",
-        "Bootsrap"
-      ],
-      "githubUrl": "https://github.com/gourbalissakh",
-      "hostedUrl": "https://youtu.be/vDMyIZ2nsS0?si=lH9Y5y3nBnNrw87-",
-      "platform": "other",
-      "customDomain": "https://youtu.be/vDMyIZ2nsS0?si=lH9Y5y3nBnNrw87-",
-      "imageUrl": "https://i.pinimg.com/1200x/be/db/aa/bedbaa683c5fe8d00065714f834a50e9.jpg",
-      "badgeColor": "primary",
-      "badgeTextDark": false,
-      "icon": "bi-folder-fill",
-      "titleColor": "primary",
-      "category": "mobile",
-      "featured": false,
-      "updatedAt": "2026-06-22"
-    },
-    {
       "id": "qcm-ia",
       "name": "QCM avec IA",
       "description": "Application full-stack générant automatiquement des QCM à partir de fichiers PDF grâce à l'IA (React + Laravel + REST API).",
